@@ -6,6 +6,10 @@ from backgammon.state import PLAYER_1
 
 def main():
     game = BackgammonGame()
+    input("Each player rolls one die to decide who starts. Press Enter...")
+    opening_dice = game.roll_opening_dice()
+    print(f"Opening roll: Player 1={opening_dice[0]}, Player 2={opening_dice[1]} "
+          "(ties are rerolled).")
 
     while not game.is_game_over():
         display_board(game.state)
@@ -17,11 +21,14 @@ def main():
         else:
             player_name = "Player 2"
 
-        input(f"{player_name}, press Enter to roll the dice...")
-
-        dice = game.roll_dice()
-
-        print(f"\n{player_name} rolled: {dice}")
+        if opening_dice is not None:
+            dice = opening_dice
+            opening_dice = None
+            print(f"\n{player_name} starts using the opening dice: {dice}")
+        else:
+            input(f"{player_name}, press Enter to roll the dice...")
+            dice = game.roll_dice()
+            print(f"\n{player_name} rolled: {dice}")
 
         legal_moves = get_legal_moves(
             game.state,

@@ -11,17 +11,33 @@ from backgammon.rules import apply_step
 
 
 class BackgammonGame:
-    def __init__(self):
+    def __init__(self, rng: random.Random | None = None):
         self.state = GameState.initial_state()
+        self.rng = rng if rng is not None else random
 
     def roll_dice(self) -> tuple[int, int]:
         """
         Roll two six-sided dice.
         """
         return (
-            random.randint(1, 6),
-            random.randint(1, 6),
+            self.rng.randint(1, 6),
+            self.rng.randint(1, 6),
         )
+
+    def roll_opening_dice(self) -> tuple[int, int]:
+        """Call once at the start of a game, before playing any turns.
+
+        Each player rolls one die (P1 first, P2 second). Reroll ties,
+        set the higher roller as current player, and return both dice
+        for that player's first move. Do not roll again on the first turn.
+        """
+        while True:
+            dice = self.roll_dice()
+            if dice[0] != dice[1]:
+                self.state.current_player = (
+                    PLAYER_1 if dice[0] > dice[1] else PLAYER_2
+                )
+                return dice
 
     def apply_move(self, move: Move) -> None:
         """
