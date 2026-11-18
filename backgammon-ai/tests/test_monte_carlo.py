@@ -33,7 +33,7 @@ class MonteCarloTests(unittest.TestCase):
             snapshot = state.copy()
             seen = []
 
-            def rollout(after, rng, depth, perspective, policy):
+            def rollout(after, rng, depth, perspective, policy, config):
                 self.assertEqual(policy, "random")
                 self.assertEqual(depth, 4)
                 self.assertEqual(perspective, player)

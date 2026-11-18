@@ -127,15 +127,16 @@ def get_legal_steps(
     """
     steps = []
 
-    # If the player has a checker on the bar,
-    # they must enter it before moving any other checker.
+    # Standard rules require entry first. Relaxed bar priority also allows
+    # board moves, whether or not entry is currently possible.
     if state.bar[player] > 0:
         point = entry_point(player, die)
 
         if is_open(state, point, player):
             steps.append(Step(BAR, point))
 
-        return steps
+        if state.rule_variant != "relaxed-bar":
+            return steps
 
     # Check every point on the board.
     for start in range(1, 25):
@@ -161,21 +162,16 @@ def get_legal_steps(
 def can_bear_off(state: GameState, player: int) -> bool:
     """
     Return True if all of the player's remaining checkers
-    are in their home board.
+    are within the active bearing-off zone (six or eight points).
     """
     if state.bar[player] > 0:
         return False
 
-    if player == PLAYER_1:
-        # Player 1's home board is points 1 through 6.
-        for point in range(7, 25):
-            if owns_point(state, point, player):
-                return False
-    else:
-        # Player 2's home board is points 19 through 24.
-        for point in range(1, 19):
-            if owns_point(state, point, player):
-                return False
+    zone = 8 if state.rule_variant == "eight-point-bearoff" else 6
+    for point in range(1, 25):
+        distance = point if player == PLAYER_1 else 25 - point
+        if distance > zone and owns_point(state, point, player):
+            return False
 
     return True
 
@@ -206,7 +202,7 @@ def can_bear_off_from(
         # Oversized die.
         # Player 1 moves toward point 1, so higher-numbered points
         # are farther from OFF.
-        for farther_point in range(point + 1, 7):
+        for farther_point in range(point + 1, 25):
             if owns_point(state, farther_point, player):
                 return False
 
@@ -226,7 +222,7 @@ def can_bear_off_from(
         # Oversized die.
         # Player 2 moves toward point 24, so lower-numbered points
         # are farther from OFF.
-        for farther_point in range(19, point):
+        for farther_point in range(1, point):
             if owns_point(state, farther_point, player):
                 return False
 
@@ -235,7 +231,8 @@ def can_bear_off_from(
 def generate_move_sequences(
     state: GameState,
     dice: list[int],
-    player: int
+    player: int,
+    hits_used: int = 0
 ) -> list[Move]:
     """
     Generate legal move sequences using the dice in the given order.
@@ -250,6 +247,10 @@ def generate_move_sequences(
         die,
         player
     )
+
+    if state.rule_variant == "single-hit" and hits_used >= 1:
+        legal_steps = [step for step in legal_steps
+                       if step.end == OFF or state.board[step.end - 1] != -player]
 
     # This die cannot be played.
     if not legal_steps:
@@ -267,7 +268,8 @@ def generate_move_sequences(
         remaining_moves = generate_move_sequences(
             new_state,
             dice[1:],
-            player
+            player,
+            hits_used + (new_state.bar[-player] - state.bar[-player])
         )
 
         for remaining_move in remaining_moves:
@@ -291,11 +293,11 @@ def get_legal_moves(
     """
     die1, die2 = dice
 
-    # Doubles are played four times.
+    # Standard doubles have four uses; no-doubles-bonus has two.
     if die1 == die2:
         moves = generate_move_sequences(
             state,
-            [die1] * 4,
+            [die1] * (2 if state.rule_variant == "no-doubles-bonus" else 4),
             player
         )
 

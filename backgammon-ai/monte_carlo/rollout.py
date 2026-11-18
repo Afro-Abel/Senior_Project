@@ -4,10 +4,10 @@ import random
 from backgammon.game import BackgammonGame
 from backgammon.rules import apply_step, get_legal_moves
 from backgammon.state import GameState
-from monte_carlo.heuristic import evaluate_position
+from monte_carlo.heuristic import DEFAULT_HEURISTIC, HeuristicConfig, evaluate_position
 
 
-def choose_heuristic_move(state, moves, rng):
+def choose_heuristic_move(state, moves, rng, config=DEFAULT_HEURISTIC):
     """Greedy one-turn evaluation for the acting player; randomize tied outcomes.
 
     No nested search. Equivalent complete states receive one candidate each.
@@ -24,7 +24,7 @@ def choose_heuristic_move(state, moves, rng):
         if key in seen:
             continue
         seen.add(key)
-        candidates.append((evaluate_position(after, player), move))
+        candidates.append((evaluate_position(after, player, config), move))
     if not candidates:
         return None
     best = max(score for score, _ in candidates)
@@ -32,7 +32,8 @@ def choose_heuristic_move(state, moves, rng):
 
 
 def rollout(state: GameState, rng: random.Random,
-            depth: int, player: int, policy: str = "random") -> float:
+            depth: int, player: int, policy: str = "random",
+            config: HeuristicConfig = DEFAULT_HEURISTIC) -> float:
     """Simulate at most depth player turns and score from player's perspective.
 
     This continues an existing game: there is no new opening roll. A blocked
@@ -55,8 +56,8 @@ def rollout(state: GameState, rng: random.Random,
                                 game.state.current_player)
         if moves:
             move = (rng.choice(moves) if policy == "random" else
-                    choose_heuristic_move(game.state, moves, rng))
+                    choose_heuristic_move(game.state, moves, rng, config))
             game.apply_move(move)
         if not game.is_game_over():
             game.switch_player()
-    return evaluate_position(game.state, player)
+    return evaluate_position(game.state, player, config)

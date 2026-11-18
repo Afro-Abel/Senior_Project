@@ -3,6 +3,8 @@ from unittest.mock import patch
 
 from backgammon.rules import get_legal_moves
 from evaluate_baseline import play_game, summarize, wilson_interval
+from monte_carlo.heuristic import DEFAULT_HEURISTIC
+from dataclasses import replace
 
 
 def cheap_move(agent, state, dice):
@@ -74,6 +76,30 @@ class EvaluationTests(unittest.TestCase):
     def test_invalid_opponent_is_rejected(self):
         with self.assertRaises(ValueError):
             play_game(0, 700, 1, 1, 10000, "unknown")
+
+    def test_candidate_parameters_do_not_change_frozen_opponents(self):
+        config = replace(DEFAULT_HEURISTIC, borne_off=0)
+        for opponent_kind in ("heuristic", "baseline"):
+            for index in (0, 1):
+                calls = []
+
+                def tracked_move(agent, state, dice):
+                    calls.append((state.current_player, agent.heuristic_config,
+                                  agent.depth, agent.rollouts_per_move))
+                    return cheap_move(agent, state, dice)
+
+                with patch("evaluate_baseline.MonteCarloAgent.choose_move", tracked_move):
+                    record = play_game(index, 700, 3, 1, 10000, opponent_kind,
+                                       "heuristic", config)
+                main = record["mc_player"]
+                self.assertTrue(any(p == main for p, *_ in calls))
+                self.assertTrue(any(p == -main for p, *_ in calls))
+                for player, actual, depth, rollouts in calls:
+                    if player == main:
+                        self.assertEqual((actual, depth, rollouts), (config, 1, 3))
+                    else:
+                        expected = (4, 20) if opponent_kind == "baseline" else (0, 1)
+                        self.assertEqual((actual, depth, rollouts), (DEFAULT_HEURISTIC, *expected))
 
     def test_default_random_policy_preserves_recorded_game(self):
         result = play_game(0, 20261017, 1, 1, 10000)

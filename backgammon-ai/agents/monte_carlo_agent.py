@@ -6,6 +6,7 @@ from backgammon.move import Move
 from backgammon.rules import apply_step, get_legal_moves
 from backgammon.state import GameState, NUM_CHECKERS
 from monte_carlo.rollout import rollout
+from monte_carlo.heuristic import DEFAULT_HEURISTIC, HeuristicConfig
 
 
 @dataclass(frozen=True)
@@ -18,7 +19,8 @@ class MoveEvaluation:
 class MonteCarloAgent:
     def __init__(self, rollouts_per_move: int = 10,
                  rng: random.Random | None = None, depth: int = 4,
-                 rollout_policy: str = "random"):
+                 rollout_policy: str = "random",
+                 heuristic_config: HeuristicConfig = DEFAULT_HEURISTIC):
         if type(rollouts_per_move) is not int or rollouts_per_move < 1:
             raise ValueError("rollouts_per_move must be a positive integer")
         self.rollouts_per_move = rollouts_per_move
@@ -28,6 +30,7 @@ class MonteCarloAgent:
         if rollout_policy not in ("random", "heuristic"):
             raise ValueError("rollout_policy must be random or heuristic")
         self.rollout_policy = rollout_policy
+        self.heuristic_config = heuristic_config
         self.rng = rng if rng is not None else random.Random()
 
     def evaluate_moves(self, state: GameState,
@@ -64,7 +67,8 @@ class MonteCarloAgent:
             after.current_player = -player
             # At depth zero the cutoff score is deterministic, so evaluate once.
             count = self.rollouts_per_move if self.depth else 1
-            score = sum(rollout(after, self.rng, self.depth, player, self.rollout_policy)
+            score = sum(rollout(after, self.rng, self.depth, player, self.rollout_policy,
+                                self.heuristic_config)
                         for _ in range(count)) / count
             evaluations.append(MoveEvaluation(move, score, count))
         return evaluations

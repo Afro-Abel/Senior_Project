@@ -1,0 +1,2 @@
+# Optional external benchmark; use Python 3.13 on Apple Silicon.
+gnubg-nn==1.1.0a11

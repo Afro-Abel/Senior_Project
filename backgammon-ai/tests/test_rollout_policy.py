@@ -28,7 +28,7 @@ class RolloutPolicyTests(unittest.TestCase):
             self.assertEqual(turns, [-1, 1, -1, 1])
             # Internal heuristic choices may use either perspective. Final score
             # must always use original decision maker, even on opponent's turn.
-            cutoff, perspective = score.call_args.args
+            cutoff, perspective = score.call_args.args[:2]
             self.assertEqual(perspective, 1)
             self.assertEqual(result, evaluate_position(cutoff, 1))
             self.assertEqual(state, snapshot)

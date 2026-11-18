@@ -11,8 +11,8 @@ from backgammon.rules import apply_step
 
 
 class BackgammonGame:
-    def __init__(self, rng: random.Random | None = None):
-        self.state = GameState.initial_state()
+    def __init__(self, rng: random.Random | None = None, rule_variant="standard"):
+        self.state = GameState.initial_state(rule_variant)
         self.rng = rng if rng is not None else random
 
     def roll_dice(self) -> tuple[int, int]:
@@ -43,12 +43,17 @@ class BackgammonGame:
         """
         Apply a complete move to the current game state.
         """
+        after = self.state
         for step in move.steps:
-            self.state = apply_step(
-                self.state,
+            after = apply_step(
+                after,
                 step,
                 self.state.current_player,
             )
+
+        if self.state.rule_variant == "single-hit" and after.bar[-self.state.current_player] - self.state.bar[-self.state.current_player] > 1:
+            raise ValueError("single-hit permits at most one hit per turn")
+        self.state = after
 
     def switch_player(self) -> None:
         """

@@ -1,0 +1,14 @@
+{
+  "status": "frozen for rule-variation experiments",
+  "style_strengths": {
+    "rear-priority": 0.05,
+    "front-priority": 0.01,
+    "aggressive": 0.05,
+    "defensive": 0.5
+  },
+  "rollouts": 20,
+  "depth": 4,
+  "rollout_policy": "heuristic",
+  "heuristic_config": "heuristic_default.json",
+  "note": "Practical style selections; optimality and equal playing strength are not established. CLI strength overrides remain available."
+}

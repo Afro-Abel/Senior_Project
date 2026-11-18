@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from backgammon.variants import validate_rule_variant
 
 
 PLAYER_1 = 1
@@ -28,9 +29,13 @@ class GameState:
         }
     )
     current_player: int = PLAYER_1
+    rule_variant: str = "standard"
+
+    def __post_init__(self):
+        validate_rule_variant(self.rule_variant)
 
     @classmethod
-    def initial_state(cls) -> "GameState":
+    def initial_state(cls, rule_variant="standard") -> "GameState":
         """
         Create the standard Backgammon starting position.
 
@@ -43,7 +48,7 @@ class GameState:
         Positive values represent Player 1 checkers.
         Negative values represent Player 2 checkers.
         """
-        state = cls()
+        state = cls(rule_variant=rule_variant)
 
         # Player 1
         state.board[23] = 2   # Point 24
@@ -68,6 +73,7 @@ class GameState:
             bar=self.bar.copy(),
             borne_off=self.borne_off.copy(),
             current_player=self.current_player,
+            rule_variant=self.rule_variant,
         )
 
     def checker_count(self, player: int) -> int:

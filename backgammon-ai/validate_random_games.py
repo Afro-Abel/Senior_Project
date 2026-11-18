@@ -8,7 +8,9 @@ from functools import lru_cache
 import random
 
 from agents.random_agent import RandomAgent
+from backgammon.variants import RULE_VARIANTS, validate_rule_variant
 from backgammon.game import BackgammonGame
+from backgammon.move import OFF
 from backgammon.rules import apply_step, get_legal_moves, get_legal_steps
 from backgammon.state import GameState
 
@@ -31,15 +33,23 @@ def dice_usage_checker(state, dice, player):
     Scores prefer the most dice used, then the higher die. Single-step rules
     are shared with the engine and are covered separately by rule fixtures.
     """
+    def allowed(current, step):
+        return not (state.rule_variant == "single-hit"
+                    and current.bar[-player] > state.bar[-player]
+                    and step.end != OFF
+                    and current.board[step.end - 1] == -player)
+
     @lru_cache(maxsize=None)
     def best(board, bar, off, remaining):
         current = GameState(list(board), dict(zip((1, -1), bar)),
-                            dict(zip((1, -1), off)), player)
+                            dict(zip((1, -1), off)), player, state.rule_variant)
         score = (0, 0)
         for die in set(remaining):
             rest = list(remaining)
             rest.remove(die)
             for step in get_legal_steps(current, die, player):
+                if not allowed(current, step):
+                    continue
                 after = apply_step(current, step, player)
                 tail = best(*key(after), tuple(rest))
                 score = max(score, (1 + tail[0], die + tail[1]))
@@ -49,7 +59,7 @@ def dice_usage_checker(state, dice, player):
         return (tuple(current.board), tuple(current.bar[p] for p in (1, -1)),
                 tuple(current.borne_off[p] for p in (1, -1)))
 
-    expanded = tuple(sorted(dice if dice[0] != dice[1] else dice * 2))
+    expanded = tuple(sorted(dice if dice[0] != dice[1] or state.rule_variant == "no-doubles-bonus" else dice * 2))
     optimum = best(*key(state), expanded)
 
     def check_move(move):
@@ -57,7 +67,7 @@ def dice_usage_checker(state, dice, player):
             if not steps:
                 return (len(move.steps), used) == optimum
             for die in set(remaining):
-                if steps[0] in get_legal_steps(current, die, player):
+                if steps[0] in get_legal_steps(current, die, player) and allowed(current, steps[0]):
                     rest = list(remaining)
                     rest.remove(die)
                     after = apply_step(current, steps[0], player)
@@ -71,14 +81,15 @@ def dice_usage_checker(state, dice, player):
     return optimum, check_move
 
 
-def run_games(games=100, seed=20261016, max_turns=10000):
+def run_games(games=100, seed=20261016, max_turns=10000, rule_variant="standard"):
+    validate_rule_variant(rule_variant)
     dice_rng = random.Random(seed)
     agent = RandomAgent(random.Random(seed + 1))
     wins = {1: 0, -1: 0}
     lengths = []
     passes = hits = entries = 0
     for game_index in range(games):
-        game = BackgammonGame(rng=dice_rng)
+        game = BackgammonGame(rng=dice_rng, rule_variant=rule_variant)
         opening_dice = game.roll_opening_dice()
         check_state(game.state)
         for turn in range(1, max_turns + 1):
@@ -127,10 +138,11 @@ def run_games(games=100, seed=20261016, max_turns=10000):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--rule-variant", choices=RULE_VARIANTS, default="standard")
     parser.add_argument("--games", type=int, default=100)
     parser.add_argument("--seed", type=int, default=20261016)
     parser.add_argument("--max-turns", type=int, default=10000)
     args = parser.parse_args()
     if args.games < 1 or args.max_turns < 1:
         parser.error("--games and --max-turns must be positive")
-    run_games(args.games, args.seed, args.max_turns)
+    run_games(args.games, args.seed, args.max_turns, args.rule_variant)
