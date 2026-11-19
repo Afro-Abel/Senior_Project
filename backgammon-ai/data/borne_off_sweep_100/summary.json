@@ -1,0 +1,168 @@
+{
+  "status": "complete",
+  "completed_games": 500,
+  "expected_games": 500,
+  "note": "Tuning data only. Do not select weights from partial results; held-out confirmation remains necessary.",
+  "candidates": [
+    {
+      "borne_off": 0,
+      "completed_games": 100,
+      "summary": {
+        "games": 100,
+        "mc_wins": 53,
+        "opponent": "baseline",
+        "opponent_wins": 47,
+        "mc_win_rate": 0.53,
+        "mc_win_rate_95pct_wilson": [
+          0.4328885697009936,
+          0.6248918204065872
+        ],
+        "by_mc_player": {
+          "1": {
+            "games": 50,
+            "wins": 25
+          },
+          "-1": {
+            "games": 50,
+            "wins": 28
+          }
+        },
+        "mc_started": 51,
+        "mean_turns": 67.36,
+        "mc_decisions": 3370,
+        "mean_decision_seconds": 0.4740283933574215,
+        "p95_decision_seconds": 1.8045004999730736,
+        "max_decision_seconds": 45.12124308303464
+      },
+      "game_elapsed_seconds": 3119.5153169967234
+    },
+    {
+      "borne_off": 2,
+      "completed_games": 100,
+      "summary": {
+        "games": 100,
+        "mc_wins": 44,
+        "opponent": "baseline",
+        "opponent_wins": 56,
+        "mc_win_rate": 0.44,
+        "mc_win_rate_95pct_wilson": [
+          0.34672026630160796,
+          0.5377189534832302
+        ],
+        "by_mc_player": {
+          "1": {
+            "games": 50,
+            "wins": 21
+          },
+          "-1": {
+            "games": 50,
+            "wins": 23
+          }
+        },
+        "mc_started": 51,
+        "mean_turns": 66.31,
+        "mc_decisions": 3313,
+        "mean_decision_seconds": 0.47127228156196693,
+        "p95_decision_seconds": 1.7853881659684703,
+        "max_decision_seconds": 22.63992975000292
+      },
+      "game_elapsed_seconds": 3090.4072230415186
+    },
+    {
+      "borne_off": 4,
+      "completed_games": 100,
+      "summary": {
+        "games": 100,
+        "mc_wins": 50,
+        "opponent": "baseline",
+        "opponent_wins": 50,
+        "mc_win_rate": 0.5,
+        "mc_win_rate_95pct_wilson": [
+          0.4038315303659956,
+          0.5961684696340044
+        ],
+        "by_mc_player": {
+          "1": {
+            "games": 50,
+            "wins": 24
+          },
+          "-1": {
+            "games": 50,
+            "wins": 26
+          }
+        },
+        "mc_started": 51,
+        "mean_turns": 66.85,
+        "mc_decisions": 3343,
+        "mean_decision_seconds": 0.4722020409049131,
+        "p95_decision_seconds": 1.772468916955404,
+        "max_decision_seconds": 22.572493167012
+      },
+      "game_elapsed_seconds": 3128.227237328654
+    },
+    {
+      "borne_off": 6,
+      "completed_games": 100,
+      "summary": {
+        "games": 100,
+        "mc_wins": 50,
+        "opponent": "baseline",
+        "opponent_wins": 50,
+        "mc_win_rate": 0.5,
+        "mc_win_rate_95pct_wilson": [
+          0.4038315303659956,
+          0.5961684696340044
+        ],
+        "by_mc_player": {
+          "1": {
+            "games": 50,
+            "wins": 24
+          },
+          "-1": {
+            "games": 50,
+            "wins": 26
+          }
+        },
+        "mc_started": 51,
+        "mean_turns": 66.95,
+        "mc_decisions": 3348,
+        "mean_decision_seconds": 0.47429474240120667,
+        "p95_decision_seconds": 1.7580312909558415,
+        "max_decision_seconds": 22.695779583998956
+      },
+      "game_elapsed_seconds": 3105.9330582913244
+    },
+    {
+      "borne_off": 8,
+      "completed_games": 100,
+      "summary": {
+        "games": 100,
+        "mc_wins": 49,
+        "opponent": "baseline",
+        "opponent_wins": 51,
+        "mc_win_rate": 0.49,
+        "mc_win_rate_95pct_wilson": [
+          0.3942199893044113,
+          0.5865198806597283
+        ],
+        "by_mc_player": {
+          "1": {
+            "games": 50,
+            "wins": 26
+          },
+          "-1": {
+            "games": 50,
+            "wins": 23
+          }
+        },
+        "mc_started": 51,
+        "mean_turns": 66.92,
+        "mc_decisions": 3346,
+        "mean_decision_seconds": 0.4944241778852067,
+        "p95_decision_seconds": 1.904608333017677,
+        "max_decision_seconds": 22.683823207975365
+      },
+      "game_elapsed_seconds": 3165.5436707495246
+    }
+  ]
+}

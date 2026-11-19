@@ -1,0 +1,80 @@
+{
+  "status": "complete",
+  "completed_games": 200,
+  "expected_games": 200,
+  "note": "Held-out comparison of selected weight 0 versus original 4. Do not select from partial results; defaults are not changed automatically.",
+  "candidates": [
+    {
+      "borne_off": 0,
+      "completed_games": 100,
+      "summary": {
+        "games": 100,
+        "mc_wins": 16,
+        "opponent": "gnubg",
+        "opponent_wins": 84,
+        "mc_win_rate": 0.16,
+        "mc_win_rate_95pct_wilson": [
+          0.10095288488804782,
+          0.24420269389270244
+        ],
+        "by_mc_player": {
+          "1": {
+            "games": 50,
+            "wins": 9
+          },
+          "-1": {
+            "games": 50,
+            "wins": 7
+          }
+        },
+        "mc_started": 44,
+        "mean_turns": 60.74,
+        "mc_decisions": 3017,
+        "mean_decision_seconds": 0.5149037539344657,
+        "p95_decision_seconds": 1.8296797090442851,
+        "max_decision_seconds": 31.641117083956487
+      },
+      "game_elapsed_seconds": 1557.8157251703087
+    },
+    {
+      "borne_off": 4,
+      "completed_games": 100,
+      "summary": {
+        "games": 100,
+        "mc_wins": 22,
+        "opponent": "gnubg",
+        "opponent_wins": 78,
+        "mc_win_rate": 0.22,
+        "mc_win_rate_95pct_wilson": [
+          0.150012823846054,
+          0.31070353514985793
+        ],
+        "by_mc_player": {
+          "1": {
+            "games": 50,
+            "wins": 11
+          },
+          "-1": {
+            "games": 50,
+            "wins": 11
+          }
+        },
+        "mc_started": 44,
+        "mean_turns": 60.74,
+        "mc_decisions": 3020,
+        "mean_decision_seconds": 0.5230083521305959,
+        "p95_decision_seconds": 1.81818633293733,
+        "max_decision_seconds": 32.11912333290093
+      },
+      "game_elapsed_seconds": 1583.8089196681976
+    }
+  ],
+  "matched_comparison": {
+    "matched_games_per_weight": 100,
+    "weight0_only_wins": 2,
+    "weight4_only_wins": 8,
+    "win_rate_difference_0_minus_4": -0.06,
+    "two_sided_exact_discordance_p": 0.109375,
+    "method": "Exact McNemar/binomial test on discordant outcomes, matched by seed and game index; matched initialization does not imply identical paths."
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "strengths": [
+    0.0,
+    0.05,
+    0.1
+  ],
+  "seeds": [
+    1201000,
+    1202000,
+    1203000,
+    1204000,
+    1205000
+  ],
+  "games_per_batch": 20,
+  "rollouts": 20,
+  "depth": 4,
+  "rollout_policy": "heuristic",
+  "opponent": "baseline",
+  "heuristic_config": {
+    "borne_off": 4.0,
+    "bar": 8.0,
+    "home_points": 2.0,
+    "prime_squared": 1.5,
+    "threatened_blots": 3.0,
+    "scale": 50.0
+  },
+  "python_version": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "source_sha256": {
+    "sweep_rear_priority_strength.py": "770e345d3a02f46404e65f4075bb3a54e979e21787b4ae3d6b727e937030e354",
+    "evaluate_baseline.py": "1b95d9389603b4e25046524310c1d340ad6a86e6b4f242ec3242b3b27e711562",
+    "behavior_metrics.py": "f0e5ab8d597c36f5d8b08b81f03bc11982e78631e6651983e592c267310a25df",
+    "validate_random_games.py": "08f39704b959e0d886cf4b9e69c87f50978fbe3bbbf49e04bfb4b7d827e36523",
+    "agents/aggressive_agent.py": "d9b2ce98b455f0afddafa02d383c164ffc8d141dda72e1a0fbdaf8aa824ee60a",
+    "agents/defensive_agent.py": "ea110939e2523287f62f43668fabe39215d643aacf965dc2aa70ce2cac37ab85",
+    "agents/front_priority_agent.py": "9cdeb56545aa23571c1b78170d733aa3c824b15a56c4085a745eabc965eb9015",
+    "agents/gnubg_agent.py": "0469ec86c48f1770ec0c234be3839388b3772604c46c72f1f1fe8e9bff730037",
+    "agents/monte_carlo_agent.py": "7b14f7684a2e82170595caf4cdf0821f4058876472e11f4aa8f39e742c682bf0",
+    "agents/random_agent.py": "763d8a97ab10d6bec6bc142ca7862cdac8077536da426b632ff0d6c19cfb59ba",
+    "agents/rear_priority_agent.py": "9319281b7cf70e9f5c9370120aa474bb69ce99db949e159fd054acd0fe34832a",
+    "agents/styled_agent.py": "9b6b0867423aae289e7c28aaaf0609cc982179ec03f2633499297901f7a2e766",
+    "backgammon/display.py": "9677eab09561cd49d514edab4423c7053bdc7e8d958cfe7d239d384d0d4f4359",
+    "backgammon/game.py": "f3dde641cef6eb4f6cdf64f94cd29f9f2a490082fd0855eb1c4c3018ddf0d811",
+    "backgammon/move.py": "7e1a07745d19e85b33c6e57973ff641d64744136d0d670afc70fe53f5660e41a",
+    "backgammon/rules.py": "f9673178f44e02ab8c0a3bae4b815165ae25de1dd3375916993ae46565ec36b7",
+    "backgammon/state.py": "e5638dac09cef1b620e7aea605f00aa7fa59060cae4319ffd7cd31ebd2798f78",
+    "monte_carlo/heuristic.py": "f62fb066cc313b4158627ed0a3eb570bc8cb03b9e6ab7900476af93d68591686",
+    "monte_carlo/rollout.py": "c5e61ac1902a281ea1d8376ab3f9432c1afe28b35ee083e3466bc172c7adbb1e"
+  }
+}

@@ -1,0 +1,175 @@
+{
+  "settings": {
+    "games": 2,
+    "opponent": "baseline",
+    "rollouts": 20,
+    "depth": 4,
+    "rollout_policy": "heuristic",
+    "seed": 980000,
+    "heuristic_config": {
+      "borne_off": 4,
+      "bar": 8,
+      "home_points": 2,
+      "prime_squared": 1.5,
+      "threatened_blots": 3,
+      "scale": 50
+    },
+    "max_turns": 10000,
+    "output": "data/borne_off_timing_pilot_s980000.json",
+    "heuristic_config_path": "configs/heuristic_borne_off_4.json"
+  },
+  "opponent_settings": {
+    "heuristic_config": {
+      "borne_off": 4.0,
+      "bar": 8.0,
+      "home_points": 2.0,
+      "prime_squared": 1.5,
+      "threatened_blots": 3.0,
+      "scale": 50.0
+    },
+    "depth": 4,
+    "rollouts": 20,
+    "rollout_policy": "heuristic"
+  },
+  "source_sha256": {
+    "agents/monte_carlo_agent.py": "7b14f7684a2e82170595caf4cdf0821f4058876472e11f4aa8f39e742c682bf0",
+    "agents/random_agent.py": "763d8a97ab10d6bec6bc142ca7862cdac8077536da426b632ff0d6c19cfb59ba",
+    "agents/gnubg_agent.py": "0469ec86c48f1770ec0c234be3839388b3772604c46c72f1f1fe8e9bff730037",
+    "monte_carlo/heuristic.py": "f62fb066cc313b4158627ed0a3eb570bc8cb03b9e6ab7900476af93d68591686",
+    "monte_carlo/rollout.py": "c5e61ac1902a281ea1d8376ab3f9432c1afe28b35ee083e3466bc172c7adbb1e",
+    "backgammon/rules.py": "f9673178f44e02ab8c0a3bae4b815165ae25de1dd3375916993ae46565ec36b7",
+    "backgammon/game.py": "f3dde641cef6eb4f6cdf64f94cd29f9f2a490082fd0855eb1c4c3018ddf0d811",
+    "backgammon/state.py": "e5638dac09cef1b620e7aea605f00aa7fa59060cae4319ffd7cd31ebd2798f78",
+    "backgammon/move.py": "7e1a07745d19e85b33c6e57973ff641d64744136d0d670afc70fe53f5660e41a",
+    "evaluate_baseline.py": "4ec20013a7c00e66f47e592ce5a9773a5e7f0a017620510e0584f48e083c3c1d",
+    "validate_random_games.py": "08f39704b959e0d886cf4b9e69c87f50978fbe3bbbf49e04bfb4b7d827e36523"
+  },
+  "notes": [
+    "Independent game seeds; alternating MC seats; standard opening contest.",
+    "Frozen original MC: default weights, 20 guided rollouts, depth four.",
+    "Timing covers MC choose_move, including forced passes, excluding validation.",
+    "Wilson interval treats game outcomes as independent; pilot evidence only.",
+    "Rollout policy applies to both simulated players; heuristic weights remain fixed.",
+    "This evaluates current fixed heuristic weights, not their optimality."
+  ],
+  "external_benchmark": null,
+  "summary": {
+    "games": 2,
+    "mc_wins": 2,
+    "opponent": "baseline",
+    "opponent_wins": 0,
+    "mc_win_rate": 1.0,
+    "mc_win_rate_95pct_wilson": [
+      0.34238022750665303,
+      1
+    ],
+    "by_mc_player": {
+      "1": {
+        "games": 1,
+        "wins": 1
+      },
+      "-1": {
+        "games": 1,
+        "wins": 1
+      }
+    },
+    "mc_started": 0,
+    "mean_turns": 55,
+    "mc_decisions": 55,
+    "mean_decision_seconds": 0.4205471530218016,
+    "p95_decision_seconds": 1.9735760000767186,
+    "max_decision_seconds": 2.7850866250228137
+  },
+  "games": [
+    {
+      "game": 1,
+      "dice_seed": 980000,
+      "mc_seed": 980001,
+      "opponent_seed": 980002,
+      "opponent": "baseline",
+      "rollout_policy": "heuristic",
+      "mc_player": 1,
+      "starter": -1,
+      "winner": 1,
+      "mc_won": true,
+      "turns": 54,
+      "hits": 7,
+      "forced_passes": 8,
+      "decision_seconds": [
+        0.26428404194302857,
+        0.5095761250704527,
+        0.5667827910510823,
+        0.2526731250109151,
+        0.5526099590351805,
+        0.21856154093984514,
+        0.28571904194541276,
+        1.9735760000767186,
+        0.4023669590242207,
+        0.14720587490592152,
+        0.11068520904518664,
+        1.4167828749632463,
+        0.5111943329684436,
+        0.2724000830203295,
+        0.1278422080213204,
+        0.40760016697458923,
+        0.37205729202833027,
+        0.2347150839632377,
+        0.031210249988362193,
+        0.1321617920184508,
+        0.08417499996721745,
+        0.06280587508808821,
+        0.1388580419588834,
+        0.03679954097606242,
+        0.01809066708665341,
+        0.011776915984228253,
+        1.7125043086707592e-05
+      ]
+    },
+    {
+      "game": 2,
+      "dice_seed": 980003,
+      "mc_seed": 980004,
+      "opponent_seed": 980005,
+      "opponent": "baseline",
+      "rollout_policy": "heuristic",
+      "mc_player": -1,
+      "starter": 1,
+      "winner": -1,
+      "mc_won": true,
+      "turns": 56,
+      "hits": 8,
+      "forced_passes": 8,
+      "decision_seconds": [
+        0.4066667089937255,
+        2.7850866250228137,
+        1.1067044161027297,
+        0.9219683340052143,
+        0.8045177919557318,
+        1.5417162920348346,
+        1.098210958065465,
+        2.1713326250901446,
+        1.4127149999840185,
+        0.2969051249092445,
+        0.3138112500309944,
+        0.17023074999451637,
+        0.30089358298573643,
+        0.09251391608268023,
+        2.3329630494117737e-06,
+        1.9579892978072166e-06,
+        2.3329630494117737e-06,
+        2.0830193534493446e-06,
+        0.013228500029072165,
+        0.024025166989304125,
+        0.07682816707529128,
+        0.14795912499539554,
+        0.15713666600640863,
+        0.06106437498237938,
+        0.054418541956692934,
+        0.02320495794992894,
+        0.006397040910087526,
+        2.0875013433396816e-05
+      ]
+    }
+  ],
+  "elapsed_seconds": 62.38316199998371
+}

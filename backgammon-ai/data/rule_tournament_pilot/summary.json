@@ -1,0 +1,1496 @@
+{
+  "status": "complete",
+  "completed_games": 300,
+  "expected_games": 300,
+  "notes": [
+    "Pilot for runner verification, runtime, and rule activation; not final strength rankings.",
+    "Ten games per matchup have large uncertainty; do not select weights from these results.",
+    "Rule impact compares distinct available outcomes against standard rules on visited states.",
+    "Shared initial seeds do not imply identical game paths. Turn observations are not independent samples.",
+    "Mean worker game time includes contention and validation; it is not serial engine speed."
+  ],
+  "matchups": [
+    {
+      "variant": "standard",
+      "agent_a": "rear-priority",
+      "agent_b": "front-priority",
+      "games": 10,
+      "a_wins": 3,
+      "b_wins": 7,
+      "a_win_rate": 0.3,
+      "a_win_rate_95pct_wilson": [
+        0.10779126740630099,
+        0.6032218525388546
+      ],
+      "a_by_seat": {
+        "1": {
+          "games": 5,
+          "wins": 1
+        },
+        "-1": {
+          "games": 5,
+          "wins": 2
+        }
+      },
+      "mean_turns": 66,
+      "rule_impact": {
+        "turns_checked": 660,
+        "turns_with_changed_outcomes": 0,
+        "changed_outcome_turn_rate": 0.0
+      },
+      "mean_worker_game_seconds": 39.533855258114635
+    },
+    {
+      "variant": "standard",
+      "agent_a": "rear-priority",
+      "agent_b": "aggressive",
+      "games": 10,
+      "a_wins": 5,
+      "b_wins": 5,
+      "a_win_rate": 0.5,
+      "a_win_rate_95pct_wilson": [
+        0.236593090512564,
+        0.7634069094874361
+      ],
+      "a_by_seat": {
+        "1": {
+          "games": 5,
+          "wins": 3
+        },
+        "-1": {
+          "games": 5,
+          "wins": 2
+        }
+      },
+      "mean_turns": 68.1,
+      "rule_impact": {
+        "turns_checked": 681,
+        "turns_with_changed_outcomes": 0,
+        "changed_outcome_turn_rate": 0.0
+      },
+      "mean_worker_game_seconds": 36.23499390003271
+    },
+    {
+      "variant": "standard",
+      "agent_a": "rear-priority",
+      "agent_b": "defensive",
+      "games": 10,
+      "a_wins": 4,
+      "b_wins": 6,
+      "a_win_rate": 0.4,
+      "a_win_rate_95pct_wilson": [
+        0.16818032970623614,
+        0.6873262302663417
+      ],
+      "a_by_seat": {
+        "1": {
+          "games": 5,
+          "wins": 4
+        },
+        "-1": {
+          "games": 5,
+          "wins": 0
+        }
+      },
+      "mean_turns": 53.4,
+      "rule_impact": {
+        "turns_checked": 534,
+        "turns_with_changed_outcomes": 0,
+        "changed_outcome_turn_rate": 0.0
+      },
+      "mean_worker_game_seconds": 40.133188483212145
+    },
+    {
+      "variant": "standard",
+      "agent_a": "front-priority",
+      "agent_b": "aggressive",
+      "games": 10,
+      "a_wins": 3,
+      "b_wins": 7,
+      "a_win_rate": 0.3,
+      "a_win_rate_95pct_wilson": [
+        0.10779126740630099,
+        0.6032218525388546
+      ],
+      "a_by_seat": {
+        "1": {
+          "games": 5,
+          "wins": 0
+        },
+        "-1": {
+          "games": 5,
+          "wins": 3
+        }
+      },
+      "mean_turns": 57,
+      "rule_impact": {
+        "turns_checked": 570,
+        "turns_with_changed_outcomes": 0,
+        "changed_outcome_turn_rate": 0.0
+      },
+      "mean_worker_game_seconds": 34.15068857914302
+    },
+    {
+      "variant": "standard",
+      "agent_a": "front-priority",
+      "agent_b": "defensive",
+      "games": 10,
+      "a_wins": 4,
+      "b_wins": 6,
+      "a_win_rate": 0.4,
+      "a_win_rate_95pct_wilson": [
+        0.16818032970623614,
+        0.6873262302663417
+      ],
+      "a_by_seat": {
+        "1": {
+          "games": 5,
+          "wins": 1
+        },
+        "-1": {
+          "games": 5,
+          "wins": 3
+        }
+      },
+      "mean_turns": 63.3,
+      "rule_impact": {
+        "turns_checked": 633,
+        "turns_with_changed_outcomes": 0,
+        "changed_outcome_turn_rate": 0.0
+      },
+      "mean_worker_game_seconds": 32.83769034573343
+    },
+    {
+      "variant": "standard",
+      "agent_a": "aggressive",
+      "agent_b": "defensive",
+      "games": 10,
+      "a_wins": 6,
+      "b_wins": 4,
+      "a_win_rate": 0.6,
+      "a_win_rate_95pct_wilson": [
+        0.31267376973365824,
+        0.8318196702937638
+      ],
+      "a_by_seat": {
+        "1": {
+          "games": 5,
+          "wins": 2
+        },
+        "-1": {
+          "games": 5,
+          "wins": 4
+        }
+      },
+      "mean_turns": 55.4,
+      "rule_impact": {
+        "turns_checked": 554,
+        "turns_with_changed_outcomes": 0,
+        "changed_outcome_turn_rate": 0.0
+      },
+      "mean_worker_game_seconds": 26.507309441640974
+    },
+    {
+      "variant": "single-hit",
+      "agent_a": "rear-priority",
+      "agent_b": "front-priority",
+      "games": 10,
+      "a_wins": 9,
+      "b_wins": 1,
+      "a_win_rate": 0.9,
+      "a_win_rate_95pct_wilson": [
+        0.5958499732047615,
+        0.9821237869049271
+      ],
+      "a_by_seat": {
+        "1": {
+          "games": 5,
+          "wins": 4
+        },
+        "-1": {
+          "games": 5,
+          "wins": 5
+        }
+      },
+      "mean_turns": 72.8,
+      "rule_impact": {
+        "turns_checked": 728,
+        "turns_with_changed_outcomes": 61,
+        "changed_outcome_turn_rate": 0.08379120879120878
+      },
+      "mean_worker_game_seconds": 35.798157112393525
+    },
+    {
+      "variant": "single-hit",
+      "agent_a": "rear-priority",
+      "agent_b": "aggressive",
+      "games": 10,
+      "a_wins": 4,
+      "b_wins": 6,
+      "a_win_rate": 0.4,
+      "a_win_rate_95pct_wilson": [
+        0.16818032970623614,
+        0.6873262302663417
+      ],
+      "a_by_seat": {
+        "1": {
+          "games": 5,
+          "wins": 3
+        },
+        "-1": {
+          "games": 5,
+          "wins": 1
+        }
+      },
+      "mean_turns": 70,
+      "rule_impact": {
+        "turns_checked": 700,
+        "turns_with_changed_outcomes": 53,
+        "changed_outcome_turn_rate": 0.07571428571428572
+      },
+      "mean_worker_game_seconds": 32.56623972929083
+    },
+    {
+      "variant": "single-hit",
+      "agent_a": "rear-priority",
+      "agent_b": "defensive",
+      "games": 10,
+      "a_wins": 5,
+      "b_wins": 5,
+      "a_win_rate": 0.5,
+      "a_win_rate_95pct_wilson": [
+        0.236593090512564,
+        0.7634069094874361
+      ],
+      "a_by_seat": {
+        "1": {
+          "games": 5,
+          "wins": 2
+        },
+        "-1": {
+          "games": 5,
+          "wins": 3
+        }
+      },
+      "mean_turns": 57.7,
+      "rule_impact": {
+        "turns_checked": 577,
+        "turns_with_changed_outcomes": 22,
+        "changed_outcome_turn_rate": 0.038128249566724434
+      },
+      "mean_worker_game_seconds": 28.792788825137542
+    },
+    {
+      "variant": "single-hit",
+      "agent_a": "front-priority",
+      "agent_b": "aggressive",
+      "games": 10,
+      "a_wins": 4,
+      "b_wins": 6,
+      "a_win_rate": 0.4,
+      "a_win_rate_95pct_wilson": [
+        0.16818032970623614,
+        0.6873262302663417
+      ],
+      "a_by_seat": {
+        "1": {
+          "games": 5,
+          "wins": 1
+        },
+        "-1": {
+          "games": 5,
+          "wins": 3
+        }
+      },
+      "mean_turns": 63.3,
+      "rule_impact": {
+        "turns_checked": 633,
+        "turns_with_changed_outcomes": 47,
+        "changed_outcome_turn_rate": 0.07424960505529225
+      },
+      "mean_worker_game_seconds": 29.537335083447395
+    },
+    {
+      "variant": "single-hit",
+      "agent_a": "front-priority",
+      "agent_b": "defensive",
+      "games": 10,
+      "a_wins": 4,
+      "b_wins": 6,
+      "a_win_rate": 0.4,
+      "a_win_rate_95pct_wilson": [
+        0.16818032970623614,
+        0.6873262302663417
+      ],
+      "a_by_seat": {
+        "1": {
+          "games": 5,
+          "wins": 2
+        },
+        "-1": {
+          "games": 5,
+          "wins": 2
+        }
+      },
+      "mean_turns": 63.9,
+      "rule_impact": {
+        "turns_checked": 639,
+        "turns_with_changed_outcomes": 31,
+        "changed_outcome_turn_rate": 0.048513302034428794
+      },
+      "mean_worker_game_seconds": 25.97781050419435
+    },
+    {
+      "variant": "single-hit",
+      "agent_a": "aggressive",
+      "agent_b": "defensive",
+      "games": 10,
+      "a_wins": 5,
+      "b_wins": 5,
+      "a_win_rate": 0.5,
+      "a_win_rate_95pct_wilson": [
+        0.236593090512564,
+        0.7634069094874361
+      ],
+      "a_by_seat": {
+        "1": {
+          "games": 5,
+          "wins": 2
+        },
+        "-1": {
+          "games": 5,
+          "wins": 3
+        }
+      },
+      "mean_turns": 58.5,
+      "rule_impact": {
+        "turns_checked": 585,
+        "turns_with_changed_outcomes": 38,
+        "changed_outcome_turn_rate": 0.06495726495726496
+      },
+      "mean_worker_game_seconds": 30.00401204158552
+    },
+    {
+      "variant": "relaxed-bar",
+      "agent_a": "rear-priority",
+      "agent_b": "front-priority",
+      "games": 10,
+      "a_wins": 7,
+      "b_wins": 3,
+      "a_win_rate": 0.7,
+      "a_win_rate_95pct_wilson": [
+        0.39677814746114537,
+        0.8922087325936989
+      ],
+      "a_by_seat": {
+        "1": {
+          "games": 5,
+          "wins": 2
+        },
+        "-1": {
+          "games": 5,
+          "wins": 5
+        }
+      },
+      "mean_turns": 62.8,
+      "rule_impact": {
+        "turns_checked": 628,
+        "turns_with_changed_outcomes": 279,
+        "changed_outcome_turn_rate": 0.4442675159235669
+      },
+      "mean_worker_game_seconds": 93.3316721748095
+    },
+    {
+      "variant": "relaxed-bar",
+      "agent_a": "rear-priority",
+      "agent_b": "aggressive",
+      "games": 10,
+      "a_wins": 2,
+      "b_wins": 8,
+      "a_win_rate": 0.2,
+      "a_win_rate_95pct_wilson": [
+        0.05668215145437519,
+        0.5098375284633583
+      ],
+      "a_by_seat": {
+        "1": {
+          "games": 5,
+          "wins": 2
+        },
+        "-1": {
+          "games": 5,
+          "wins": 0
+        }
+      },
+      "mean_turns": 63.8,
+      "rule_impact": {
+        "turns_checked": 638,
+        "turns_with_changed_outcomes": 276,
+        "changed_outcome_turn_rate": 0.43260188087774293
+      },
+      "mean_worker_game_seconds": 78.75767068730201
+    },
+    {
+      "variant": "relaxed-bar",
+      "agent_a": "rear-priority",
+      "agent_b": "defensive",
+      "games": 10,
+      "a_wins": 7,
+      "b_wins": 3,
+      "a_win_rate": 0.7,
+      "a_win_rate_95pct_wilson": [
+        0.39677814746114537,
+        0.8922087325936989
+      ],
+      "a_by_seat": {
+        "1": {
+          "games": 5,
+          "wins": 3
+        },
+        "-1": {
+          "games": 5,
+          "wins": 4
+        }
+      },
+      "mean_turns": 57.1,
+      "rule_impact": {
+        "turns_checked": 571,
+        "turns_with_changed_outcomes": 150,
+        "changed_outcome_turn_rate": 0.2626970227670753
+      },
+      "mean_worker_game_seconds": 51.23502235421911
+    },
+    {
+      "variant": "relaxed-bar",
+      "agent_a": "front-priority",
+      "agent_b": "aggressive",
+      "games": 10,
+      "a_wins": 6,
+      "b_wins": 4,
+      "a_win_rate": 0.6,
+      "a_win_rate_95pct_wilson": [
+        0.31267376973365824,
+        0.8318196702937638
+      ],
+      "a_by_seat": {
+        "1": {
+          "games": 5,
+          "wins": 3
+        },
+        "-1": {
+          "games": 5,
+          "wins": 3
+        }
+      },
+      "mean_turns": 71.1,
+      "rule_impact": {
+        "turns_checked": 711,
+        "turns_with_changed_outcomes": 307,
+        "changed_outcome_turn_rate": 0.4317862165963432
+      },
+      "mean_worker_game_seconds": 82.21806429584976
+    },
+    {
+      "variant": "relaxed-bar",
+      "agent_a": "front-priority",
+      "agent_b": "defensive",
+      "games": 10,
+      "a_wins": 2,
+      "b_wins": 8,
+      "a_win_rate": 0.2,
+      "a_win_rate_95pct_wilson": [
+        0.05668215145437519,
+        0.5098375284633583
+      ],
+      "a_by_seat": {
+        "1": {
+          "games": 5,
+          "wins": 1
+        },
+        "-1": {
+          "games": 5,
+          "wins": 1
+        }
+      },
+      "mean_turns": 50.7,
+      "rule_impact": {
+        "turns_checked": 507,
+        "turns_with_changed_outcomes": 143,
+        "changed_outcome_turn_rate": 0.28205128205128205
+      },
+      "mean_worker_game_seconds": 48.930894541740415
+    },
+    {
+      "variant": "relaxed-bar",
+      "agent_a": "aggressive",
+      "agent_b": "defensive",
+      "games": 10,
+      "a_wins": 4,
+      "b_wins": 6,
+      "a_win_rate": 0.4,
+      "a_win_rate_95pct_wilson": [
+        0.16818032970623614,
+        0.6873262302663417
+      ],
+      "a_by_seat": {
+        "1": {
+          "games": 5,
+          "wins": 3
+        },
+        "-1": {
+          "games": 5,
+          "wins": 1
+        }
+      },
+      "mean_turns": 56,
+      "rule_impact": {
+        "turns_checked": 560,
+        "turns_with_changed_outcomes": 170,
+        "changed_outcome_turn_rate": 0.30357142857142855
+      },
+      "mean_worker_game_seconds": 53.43922282084823
+    },
+    {
+      "variant": "no-doubles-bonus",
+      "agent_a": "rear-priority",
+      "agent_b": "front-priority",
+      "games": 10,
+      "a_wins": 5,
+      "b_wins": 5,
+      "a_win_rate": 0.5,
+      "a_win_rate_95pct_wilson": [
+        0.236593090512564,
+        0.7634069094874361
+      ],
+      "a_by_seat": {
+        "1": {
+          "games": 5,
+          "wins": 3
+        },
+        "-1": {
+          "games": 5,
+          "wins": 2
+        }
+      },
+      "mean_turns": 82.6,
+      "rule_impact": {
+        "turns_checked": 826,
+        "turns_with_changed_outcomes": 113,
+        "changed_outcome_turn_rate": 0.1368038740920097
+      },
+      "mean_worker_game_seconds": 12.84835235818755
+    },
+    {
+      "variant": "no-doubles-bonus",
+      "agent_a": "rear-priority",
+      "agent_b": "aggressive",
+      "games": 10,
+      "a_wins": 5,
+      "b_wins": 5,
+      "a_win_rate": 0.5,
+      "a_win_rate_95pct_wilson": [
+        0.236593090512564,
+        0.7634069094874361
+      ],
+      "a_by_seat": {
+        "1": {
+          "games": 5,
+          "wins": 3
+        },
+        "-1": {
+          "games": 5,
+          "wins": 2
+        }
+      },
+      "mean_turns": 72.1,
+      "rule_impact": {
+        "turns_checked": 721,
+        "turns_with_changed_outcomes": 89,
+        "changed_outcome_turn_rate": 0.12343966712898752
+      },
+      "mean_worker_game_seconds": 11.442108824849129
+    },
+    {
+      "variant": "no-doubles-bonus",
+      "agent_a": "rear-priority",
+      "agent_b": "defensive",
+      "games": 10,
+      "a_wins": 6,
+      "b_wins": 4,
+      "a_win_rate": 0.6,
+      "a_win_rate_95pct_wilson": [
+        0.31267376973365824,
+        0.8318196702937638
+      ],
+      "a_by_seat": {
+        "1": {
+          "games": 5,
+          "wins": 4
+        },
+        "-1": {
+          "games": 5,
+          "wins": 2
+        }
+      },
+      "mean_turns": 68.8,
+      "rule_impact": {
+        "turns_checked": 688,
+        "turns_with_changed_outcomes": 85,
+        "changed_outcome_turn_rate": 0.12354651162790697
+      },
+      "mean_worker_game_seconds": 8.929593912465497
+    },
+    {
+      "variant": "no-doubles-bonus",
+      "agent_a": "front-priority",
+      "agent_b": "aggressive",
+      "games": 10,
+      "a_wins": 6,
+      "b_wins": 4,
+      "a_win_rate": 0.6,
+      "a_win_rate_95pct_wilson": [
+        0.31267376973365824,
+        0.8318196702937638
+      ],
+      "a_by_seat": {
+        "1": {
+          "games": 5,
+          "wins": 3
+        },
+        "-1": {
+          "games": 5,
+          "wins": 3
+        }
+      },
+      "mean_turns": 78.7,
+      "rule_impact": {
+        "turns_checked": 787,
+        "turns_with_changed_outcomes": 89,
+        "changed_outcome_turn_rate": 0.11308767471410419
+      },
+      "mean_worker_game_seconds": 10.625663850014098
+    },
+    {
+      "variant": "no-doubles-bonus",
+      "agent_a": "front-priority",
+      "agent_b": "defensive",
+      "games": 10,
+      "a_wins": 3,
+      "b_wins": 7,
+      "a_win_rate": 0.3,
+      "a_win_rate_95pct_wilson": [
+        0.10779126740630099,
+        0.6032218525388546
+      ],
+      "a_by_seat": {
+        "1": {
+          "games": 5,
+          "wins": 1
+        },
+        "-1": {
+          "games": 5,
+          "wins": 2
+        }
+      },
+      "mean_turns": 76.2,
+      "rule_impact": {
+        "turns_checked": 762,
+        "turns_with_changed_outcomes": 98,
+        "changed_outcome_turn_rate": 0.12860892388451445
+      },
+      "mean_worker_game_seconds": 9.071300066844561
+    },
+    {
+      "variant": "no-doubles-bonus",
+      "agent_a": "aggressive",
+      "agent_b": "defensive",
+      "games": 10,
+      "a_wins": 5,
+      "b_wins": 5,
+      "a_win_rate": 0.5,
+      "a_win_rate_95pct_wilson": [
+        0.236593090512564,
+        0.7634069094874361
+      ],
+      "a_by_seat": {
+        "1": {
+          "games": 5,
+          "wins": 2
+        },
+        "-1": {
+          "games": 5,
+          "wins": 3
+        }
+      },
+      "mean_turns": 68.3,
+      "rule_impact": {
+        "turns_checked": 683,
+        "turns_with_changed_outcomes": 91,
+        "changed_outcome_turn_rate": 0.13323572474377746
+      },
+      "mean_worker_game_seconds": 8.524368037492968
+    },
+    {
+      "variant": "eight-point-bearoff",
+      "agent_a": "rear-priority",
+      "agent_b": "front-priority",
+      "games": 10,
+      "a_wins": 5,
+      "b_wins": 5,
+      "a_win_rate": 0.5,
+      "a_win_rate_95pct_wilson": [
+        0.236593090512564,
+        0.7634069094874361
+      ],
+      "a_by_seat": {
+        "1": {
+          "games": 5,
+          "wins": 2
+        },
+        "-1": {
+          "games": 5,
+          "wins": 3
+        }
+      },
+      "mean_turns": 64,
+      "rule_impact": {
+        "turns_checked": 640,
+        "turns_with_changed_outcomes": 47,
+        "changed_outcome_turn_rate": 0.0734375
+      },
+      "mean_worker_game_seconds": 39.44191868358757
+    },
+    {
+      "variant": "eight-point-bearoff",
+      "agent_a": "rear-priority",
+      "agent_b": "aggressive",
+      "games": 10,
+      "a_wins": 6,
+      "b_wins": 4,
+      "a_win_rate": 0.6,
+      "a_win_rate_95pct_wilson": [
+        0.31267376973365824,
+        0.8318196702937638
+      ],
+      "a_by_seat": {
+        "1": {
+          "games": 5,
+          "wins": 2
+        },
+        "-1": {
+          "games": 5,
+          "wins": 4
+        }
+      },
+      "mean_turns": 66,
+      "rule_impact": {
+        "turns_checked": 660,
+        "turns_with_changed_outcomes": 39,
+        "changed_outcome_turn_rate": 0.05909090909090909
+      },
+      "mean_worker_game_seconds": 39.53819922474213
+    },
+    {
+      "variant": "eight-point-bearoff",
+      "agent_a": "rear-priority",
+      "agent_b": "defensive",
+      "games": 10,
+      "a_wins": 4,
+      "b_wins": 6,
+      "a_win_rate": 0.4,
+      "a_win_rate_95pct_wilson": [
+        0.16818032970623614,
+        0.6873262302663417
+      ],
+      "a_by_seat": {
+        "1": {
+          "games": 5,
+          "wins": 4
+        },
+        "-1": {
+          "games": 5,
+          "wins": 0
+        }
+      },
+      "mean_turns": 55.2,
+      "rule_impact": {
+        "turns_checked": 552,
+        "turns_with_changed_outcomes": 40,
+        "changed_outcome_turn_rate": 0.07246376811594203
+      },
+      "mean_worker_game_seconds": 38.900062150019224
+    },
+    {
+      "variant": "eight-point-bearoff",
+      "agent_a": "front-priority",
+      "agent_b": "aggressive",
+      "games": 10,
+      "a_wins": 4,
+      "b_wins": 6,
+      "a_win_rate": 0.4,
+      "a_win_rate_95pct_wilson": [
+        0.16818032970623614,
+        0.6873262302663417
+      ],
+      "a_by_seat": {
+        "1": {
+          "games": 5,
+          "wins": 0
+        },
+        "-1": {
+          "games": 5,
+          "wins": 4
+        }
+      },
+      "mean_turns": 56.3,
+      "rule_impact": {
+        "turns_checked": 563,
+        "turns_with_changed_outcomes": 24,
+        "changed_outcome_turn_rate": 0.04262877442273535
+      },
+      "mean_worker_game_seconds": 33.90197611674667
+    },
+    {
+      "variant": "eight-point-bearoff",
+      "agent_a": "front-priority",
+      "agent_b": "defensive",
+      "games": 10,
+      "a_wins": 5,
+      "b_wins": 5,
+      "a_win_rate": 0.5,
+      "a_win_rate_95pct_wilson": [
+        0.236593090512564,
+        0.7634069094874361
+      ],
+      "a_by_seat": {
+        "1": {
+          "games": 5,
+          "wins": 1
+        },
+        "-1": {
+          "games": 5,
+          "wins": 4
+        }
+      },
+      "mean_turns": 69.2,
+      "rule_impact": {
+        "turns_checked": 692,
+        "turns_with_changed_outcomes": 51,
+        "changed_outcome_turn_rate": 0.07369942196531792
+      },
+      "mean_worker_game_seconds": 34.858654425176795
+    },
+    {
+      "variant": "eight-point-bearoff",
+      "agent_a": "aggressive",
+      "agent_b": "defensive",
+      "games": 10,
+      "a_wins": 7,
+      "b_wins": 3,
+      "a_win_rate": 0.7,
+      "a_win_rate_95pct_wilson": [
+        0.39677814746114537,
+        0.8922087325936989
+      ],
+      "a_by_seat": {
+        "1": {
+          "games": 5,
+          "wins": 3
+        },
+        "-1": {
+          "games": 5,
+          "wins": 4
+        }
+      },
+      "mean_turns": 58.7,
+      "rule_impact": {
+        "turns_checked": 587,
+        "turns_with_changed_outcomes": 35,
+        "changed_outcome_turn_rate": 0.059625212947189095
+      },
+      "mean_worker_game_seconds": 28.66982285415288
+    }
+  ],
+  "standings": [
+    {
+      "variant": "standard",
+      "agent": "rear-priority",
+      "games": 30,
+      "wins": 12,
+      "win_rate": 0.4,
+      "gameplay_behavior": {
+        "turns": 936,
+        "passes": 97,
+        "hits": 176,
+        "hits_per_turn": 0.18803418803418803,
+        "hitting_opportunity_turns": 296,
+        "hit_when_available_rate": 0.5540540540540541,
+        "mean_post_turn_blots": 1.6901709401709402,
+        "mean_post_turn_threatened_blots": 0.594017094017094,
+        "mean_post_turn_made_points": 4.082264957264957,
+        "contact_turns": 731,
+        "mean_threatened_blots_in_contact": 0.7606019151846786,
+        "mean_made_points_in_contact": 4.409028727770178,
+        "pip_progress": 6305,
+        "mean_advancement_midpoint_distance": 11.249563838223631,
+        "advancement_choice_turns": 727,
+        "mean_advancement_choice_rank": 0.646794737134246,
+        "checkers_borne_off": 241
+      },
+      "mean_decision_seconds": 0.67548979024162,
+      "style_overrode_mc_decisions": 168,
+      "mean_mc_utility_sacrificed": 0.002439273365690379
+    },
+    {
+      "variant": "standard",
+      "agent": "front-priority",
+      "games": 30,
+      "wins": 14,
+      "win_rate": 0.4666666666666667,
+      "gameplay_behavior": {
+        "turns": 932,
+        "passes": 98,
+        "hits": 165,
+        "hits_per_turn": 0.17703862660944206,
+        "hitting_opportunity_turns": 262,
+        "hit_when_available_rate": 0.5992366412213741,
+        "mean_post_turn_blots": 1.7757510729613735,
+        "mean_post_turn_threatened_blots": 0.5772532188841202,
+        "mean_post_turn_made_points": 4.131974248927039,
+        "contact_turns": 761,
+        "mean_threatened_blots_in_contact": 0.7069645203679369,
+        "mean_made_points_in_contact": 4.498028909329829,
+        "pip_progress": 6189,
+        "mean_advancement_midpoint_distance": 10.616658587817096,
+        "advancement_choice_turns": 720,
+        "mean_advancement_choice_rank": 0.457388327536014,
+        "checkers_borne_off": 262
+      },
+      "mean_decision_seconds": 0.6457140201706711,
+      "style_overrode_mc_decisions": 56,
+      "mean_mc_utility_sacrificed": 0.00015304348703532418
+    },
+    {
+      "variant": "standard",
+      "agent": "aggressive",
+      "games": 30,
+      "wins": 18,
+      "win_rate": 0.6,
+      "gameplay_behavior": {
+        "turns": 904,
+        "passes": 74,
+        "hits": 193,
+        "hits_per_turn": 0.21349557522123894,
+        "hitting_opportunity_turns": 267,
+        "hit_when_available_rate": 0.6666666666666666,
+        "mean_post_turn_blots": 1.7533185840707965,
+        "mean_post_turn_threatened_blots": 0.5542035398230089,
+        "mean_post_turn_made_points": 4.039823008849558,
+        "contact_turns": 744,
+        "mean_threatened_blots_in_contact": 0.6733870967741935,
+        "mean_made_points_in_contact": 4.423387096774194,
+        "pip_progress": 6158,
+        "mean_advancement_midpoint_distance": 10.59970769730432,
+        "advancement_choice_turns": 708,
+        "mean_advancement_choice_rank": 0.5221514513308583,
+        "checkers_borne_off": 288
+      },
+      "mean_decision_seconds": 0.44381832131684296,
+      "style_overrode_mc_decisions": 25,
+      "mean_mc_utility_sacrificed": 0.000676988565756354
+    },
+    {
+      "variant": "standard",
+      "agent": "defensive",
+      "games": 30,
+      "wins": 16,
+      "win_rate": 0.5333333333333333,
+      "gameplay_behavior": {
+        "turns": 860,
+        "passes": 56,
+        "hits": 169,
+        "hits_per_turn": 0.19651162790697674,
+        "hitting_opportunity_turns": 299,
+        "hit_when_available_rate": 0.5451505016722408,
+        "mean_post_turn_blots": 1.1162790697674418,
+        "mean_post_turn_threatened_blots": 0.24069767441860465,
+        "mean_post_turn_made_points": 4.317441860465117,
+        "contact_turns": 698,
+        "mean_threatened_blots_in_contact": 0.29656160458452724,
+        "mean_made_points_in_contact": 4.86676217765043,
+        "pip_progress": 5726,
+        "mean_advancement_midpoint_distance": 9.667307020607755,
+        "advancement_choice_turns": 657,
+        "mean_advancement_choice_rank": 0.4803607440195939,
+        "checkers_borne_off": 281
+      },
+      "mean_decision_seconds": 0.5285738107277254,
+      "style_overrode_mc_decisions": 218,
+      "mean_mc_utility_sacrificed": 0.015849578732195613
+    },
+    {
+      "variant": "single-hit",
+      "agent": "rear-priority",
+      "games": 30,
+      "wins": 18,
+      "win_rate": 0.6,
+      "gameplay_behavior": {
+        "turns": 1004,
+        "passes": 93,
+        "hits": 178,
+        "hits_per_turn": 0.17729083665338646,
+        "hitting_opportunity_turns": 329,
+        "hit_when_available_rate": 0.541033434650456,
+        "mean_post_turn_blots": 1.5199203187250996,
+        "mean_post_turn_threatened_blots": 0.5149402390438247,
+        "mean_post_turn_made_points": 3.956175298804781,
+        "contact_turns": 806,
+        "mean_threatened_blots_in_contact": 0.641439205955335,
+        "mean_made_points_in_contact": 4.361042183622828,
+        "pip_progress": 6640,
+        "mean_advancement_midpoint_distance": 10.521084337349398,
+        "advancement_choice_turns": 777,
+        "mean_advancement_choice_rank": 0.6557400378154665,
+        "checkers_borne_off": 339
+      },
+      "mean_decision_seconds": 0.5282763558223313,
+      "style_overrode_mc_decisions": 179,
+      "mean_mc_utility_sacrificed": 0.002591525527890112
+    },
+    {
+      "variant": "single-hit",
+      "agent": "front-priority",
+      "games": 30,
+      "wins": 9,
+      "win_rate": 0.3,
+      "gameplay_behavior": {
+        "turns": 998,
+        "passes": 116,
+        "hits": 176,
+        "hits_per_turn": 0.17635270541082165,
+        "hitting_opportunity_turns": 284,
+        "hit_when_available_rate": 0.6197183098591549,
+        "mean_post_turn_blots": 1.8316633266533067,
+        "mean_post_turn_threatened_blots": 0.6402805611222445,
+        "mean_post_turn_made_points": 3.8577154308617234,
+        "contact_turns": 827,
+        "mean_threatened_blots_in_contact": 0.7726723095525998,
+        "mean_made_points_in_contact": 4.133010882708585,
+        "pip_progress": 6706,
+        "mean_advancement_midpoint_distance": 11.043393975544289,
+        "advancement_choice_turns": 781,
+        "mean_advancement_choice_rank": 0.4670213159081561,
+        "checkers_borne_off": 207
+      },
+      "mean_decision_seconds": 0.36582364974508924,
+      "style_overrode_mc_decisions": 49,
+      "mean_mc_utility_sacrificed": 0.0001623017290171815
+    },
+    {
+      "variant": "single-hit",
+      "agent": "aggressive",
+      "games": 30,
+      "wins": 17,
+      "win_rate": 0.5666666666666667,
+      "gameplay_behavior": {
+        "turns": 960,
+        "passes": 96,
+        "hits": 195,
+        "hits_per_turn": 0.203125,
+        "hitting_opportunity_turns": 303,
+        "hit_when_available_rate": 0.6435643564356436,
+        "mean_post_turn_blots": 1.7947916666666666,
+        "mean_post_turn_threatened_blots": 0.634375,
+        "mean_post_turn_made_points": 4.060416666666667,
+        "contact_turns": 782,
+        "mean_threatened_blots_in_contact": 0.7787723785166241,
+        "mean_made_points_in_contact": 4.462915601023018,
+        "pip_progress": 6489,
+        "mean_advancement_midpoint_distance": 10.362844814301125,
+        "advancement_choice_turns": 753,
+        "mean_advancement_choice_rank": 0.5326937583858643,
+        "checkers_borne_off": 299
+      },
+      "mean_decision_seconds": 0.5033379740135084,
+      "style_overrode_mc_decisions": 23,
+      "mean_mc_utility_sacrificed": 0.0006364242674388188
+    },
+    {
+      "variant": "single-hit",
+      "agent": "defensive",
+      "games": 30,
+      "wins": 16,
+      "win_rate": 0.5333333333333333,
+      "gameplay_behavior": {
+        "turns": 900,
+        "passes": 82,
+        "hits": 179,
+        "hits_per_turn": 0.1988888888888889,
+        "hitting_opportunity_turns": 316,
+        "hit_when_available_rate": 0.5664556962025317,
+        "mean_post_turn_blots": 1.1588888888888889,
+        "mean_post_turn_threatened_blots": 0.2633333333333333,
+        "mean_post_turn_made_points": 4.404444444444445,
+        "contact_turns": 718,
+        "mean_threatened_blots_in_contact": 0.33008356545961004,
+        "mean_made_points_in_contact": 4.9484679665738165,
+        "pip_progress": 6011,
+        "mean_advancement_midpoint_distance": 9.715771086341707,
+        "advancement_choice_turns": 722,
+        "mean_advancement_choice_rank": 0.4971432455503349,
+        "checkers_borne_off": 269
+      },
+      "mean_decision_seconds": 0.49161403246405017,
+      "style_overrode_mc_decisions": 221,
+      "mean_mc_utility_sacrificed": 0.020146645250623377
+    },
+    {
+      "variant": "relaxed-bar",
+      "agent": "rear-priority",
+      "games": 30,
+      "wins": 16,
+      "win_rate": 0.5333333333333333,
+      "gameplay_behavior": {
+        "turns": 919,
+        "passes": 17,
+        "hits": 179,
+        "hits_per_turn": 0.19477693144722524,
+        "hitting_opportunity_turns": 325,
+        "hit_when_available_rate": 0.5076923076923077,
+        "mean_post_turn_blots": 1.5092491838955386,
+        "mean_post_turn_threatened_blots": 0.7823721436343852,
+        "mean_post_turn_made_points": 3.866158868335147,
+        "contact_turns": 765,
+        "mean_threatened_blots_in_contact": 0.9398692810457516,
+        "mean_made_points_in_contact": 4.228758169934641,
+        "pip_progress": 6633,
+        "mean_advancement_midpoint_distance": 10.62724257500377,
+        "advancement_choice_turns": 773,
+        "mean_advancement_choice_rank": 0.6692650369970782,
+        "checkers_borne_off": 293
+      },
+      "mean_decision_seconds": 1.387449257045131,
+      "style_overrode_mc_decisions": 135,
+      "mean_mc_utility_sacrificed": 0.0018404444337564282
+    },
+    {
+      "variant": "relaxed-bar",
+      "agent": "front-priority",
+      "games": 30,
+      "wins": 11,
+      "win_rate": 0.36666666666666664,
+      "gameplay_behavior": {
+        "turns": 922,
+        "passes": 15,
+        "hits": 180,
+        "hits_per_turn": 0.19522776572668113,
+        "hitting_opportunity_turns": 295,
+        "hit_when_available_rate": 0.559322033898305,
+        "mean_post_turn_blots": 1.5412147505422993,
+        "mean_post_turn_threatened_blots": 0.806941431670282,
+        "mean_post_turn_made_points": 3.8080260303687634,
+        "contact_turns": 774,
+        "mean_threatened_blots_in_contact": 0.9612403100775194,
+        "mean_made_points_in_contact": 4.12015503875969,
+        "pip_progress": 6805,
+        "mean_advancement_midpoint_distance": 10.840778839088905,
+        "advancement_choice_turns": 764,
+        "mean_advancement_choice_rank": 0.5406176019351591,
+        "checkers_borne_off": 273
+      },
+      "mean_decision_seconds": 1.0834234642499245,
+      "style_overrode_mc_decisions": 51,
+      "mean_mc_utility_sacrificed": 0.00017353057473784084
+    },
+    {
+      "variant": "relaxed-bar",
+      "agent": "aggressive",
+      "games": 30,
+      "wins": 16,
+      "win_rate": 0.5333333333333333,
+      "gameplay_behavior": {
+        "turns": 955,
+        "passes": 25,
+        "hits": 225,
+        "hits_per_turn": 0.2356020942408377,
+        "hitting_opportunity_turns": 322,
+        "hit_when_available_rate": 0.6459627329192547,
+        "mean_post_turn_blots": 1.4544502617801047,
+        "mean_post_turn_threatened_blots": 0.7947643979057591,
+        "mean_post_turn_made_points": 3.824083769633508,
+        "contact_turns": 788,
+        "mean_threatened_blots_in_contact": 0.9631979695431472,
+        "mean_made_points_in_contact": 4.218274111675127,
+        "pip_progress": 6898,
+        "mean_advancement_midpoint_distance": 10.266309075094231,
+        "advancement_choice_turns": 813,
+        "mean_advancement_choice_rank": 0.5633868330706061,
+        "checkers_borne_off": 323
+      },
+      "mean_decision_seconds": 1.1043138976308824,
+      "style_overrode_mc_decisions": 33,
+      "mean_mc_utility_sacrificed": 0.000689648125975285
+    },
+    {
+      "variant": "relaxed-bar",
+      "agent": "defensive",
+      "games": 30,
+      "wins": 17,
+      "win_rate": 0.5666666666666667,
+      "gameplay_behavior": {
+        "turns": 819,
+        "passes": 16,
+        "hits": 126,
+        "hits_per_turn": 0.15384615384615385,
+        "hitting_opportunity_turns": 264,
+        "hit_when_available_rate": 0.44696969696969696,
+        "mean_post_turn_blots": 0.967032967032967,
+        "mean_post_turn_threatened_blots": 0.2844932844932845,
+        "mean_post_turn_made_points": 4.2905982905982905,
+        "contact_turns": 634,
+        "mean_threatened_blots_in_contact": 0.3675078864353312,
+        "mean_made_points_in_contact": 4.962145110410095,
+        "pip_progress": 5823,
+        "mean_advancement_midpoint_distance": 9.016228748068006,
+        "advancement_choice_turns": 696,
+        "mean_advancement_choice_rank": 0.45794576644596396,
+        "checkers_borne_off": 354
+      },
+      "mean_decision_seconds": 0.9087289098629748,
+      "style_overrode_mc_decisions": 268,
+      "mean_mc_utility_sacrificed": 0.031363260931744665
+    },
+    {
+      "variant": "no-doubles-bonus",
+      "agent": "rear-priority",
+      "games": 30,
+      "wins": 16,
+      "win_rate": 0.5333333333333333,
+      "gameplay_behavior": {
+        "turns": 1118,
+        "passes": 126,
+        "hits": 183,
+        "hits_per_turn": 0.16368515205724507,
+        "hitting_opportunity_turns": 391,
+        "hit_when_available_rate": 0.45268542199488493,
+        "mean_post_turn_blots": 1.4230769230769231,
+        "mean_post_turn_threatened_blots": 0.5509838998211091,
+        "mean_post_turn_made_points": 3.9364937388193204,
+        "contact_turns": 917,
+        "mean_threatened_blots_in_contact": 0.6717557251908397,
+        "mean_made_points_in_contact": 4.28680479825518,
+        "pip_progress": 6504,
+        "mean_advancement_midpoint_distance": 10.716482164821649,
+        "advancement_choice_turns": 842,
+        "mean_advancement_choice_rank": 0.6468279417416607,
+        "checkers_borne_off": 304
+      },
+      "mean_decision_seconds": 0.14173714863677878,
+      "style_overrode_mc_decisions": 175,
+      "mean_mc_utility_sacrificed": 0.002487611165419261
+    },
+    {
+      "variant": "no-doubles-bonus",
+      "agent": "front-priority",
+      "games": 30,
+      "wins": 14,
+      "win_rate": 0.4666666666666667,
+      "gameplay_behavior": {
+        "turns": 1188,
+        "passes": 114,
+        "hits": 210,
+        "hits_per_turn": 0.17676767676767677,
+        "hitting_opportunity_turns": 364,
+        "hit_when_available_rate": 0.5576923076923077,
+        "mean_post_turn_blots": 1.7937710437710437,
+        "mean_post_turn_threatened_blots": 0.6060606060606061,
+        "mean_post_turn_made_points": 4.0286195286195285,
+        "contact_turns": 995,
+        "mean_threatened_blots_in_contact": 0.7236180904522613,
+        "mean_made_points_in_contact": 4.374874371859296,
+        "pip_progress": 7076,
+        "mean_advancement_midpoint_distance": 10.957179197286603,
+        "advancement_choice_turns": 932,
+        "mean_advancement_choice_rank": 0.4516105361649906,
+        "checkers_borne_off": 293
+      },
+      "mean_decision_seconds": 0.13076727293719465,
+      "style_overrode_mc_decisions": 61,
+      "mean_mc_utility_sacrificed": 0.000141598464099863
+    },
+    {
+      "variant": "no-doubles-bonus",
+      "agent": "aggressive",
+      "games": 30,
+      "wins": 14,
+      "win_rate": 0.4666666666666667,
+      "gameplay_behavior": {
+        "turns": 1095,
+        "passes": 116,
+        "hits": 196,
+        "hits_per_turn": 0.17899543378995433,
+        "hitting_opportunity_turns": 305,
+        "hit_when_available_rate": 0.6065573770491803,
+        "mean_post_turn_blots": 1.9168949771689499,
+        "mean_post_turn_threatened_blots": 0.6219178082191781,
+        "mean_post_turn_made_points": 4.155251141552512,
+        "contact_turns": 902,
+        "mean_threatened_blots_in_contact": 0.7549889135254989,
+        "mean_made_points_in_contact": 4.523281596452328,
+        "pip_progress": 6471,
+        "mean_advancement_midpoint_distance": 10.665507649513213,
+        "advancement_choice_turns": 875,
+        "mean_advancement_choice_rank": 0.49141905951483045,
+        "checkers_borne_off": 259
+      },
+      "mean_decision_seconds": 0.15560905201377595,
+      "style_overrode_mc_decisions": 39,
+      "mean_mc_utility_sacrificed": 0.0009262097437526904
+    },
+    {
+      "variant": "no-doubles-bonus",
+      "agent": "defensive",
+      "games": 30,
+      "wins": 16,
+      "win_rate": 0.5333333333333333,
+      "gameplay_behavior": {
+        "turns": 1066,
+        "passes": 98,
+        "hits": 197,
+        "hits_per_turn": 0.1848030018761726,
+        "hitting_opportunity_turns": 334,
+        "hit_when_available_rate": 0.5748502994011976,
+        "mean_post_turn_blots": 1.1622889305816135,
+        "mean_post_turn_threatened_blots": 0.32926829268292684,
+        "mean_post_turn_made_points": 4.2120075046904315,
+        "contact_turns": 858,
+        "mean_threatened_blots_in_contact": 0.4090909090909091,
+        "mean_made_points_in_contact": 4.712121212121212,
+        "pip_progress": 6178,
+        "mean_advancement_midpoint_distance": 9.878925218517319,
+        "advancement_choice_turns": 835,
+        "mean_advancement_choice_rank": 0.45655866298388803,
+        "checkers_borne_off": 293
+      },
+      "mean_decision_seconds": 0.11908973417660715,
+      "style_overrode_mc_decisions": 260,
+      "mean_mc_utility_sacrificed": 0.020426857927584512
+    },
+    {
+      "variant": "eight-point-bearoff",
+      "agent": "rear-priority",
+      "games": 30,
+      "wins": 15,
+      "win_rate": 0.5,
+      "gameplay_behavior": {
+        "turns": 926,
+        "passes": 118,
+        "hits": 170,
+        "hits_per_turn": 0.183585313174946,
+        "hitting_opportunity_turns": 291,
+        "hit_when_available_rate": 0.5395189003436426,
+        "mean_post_turn_blots": 1.676025917926566,
+        "mean_post_turn_threatened_blots": 0.6025917926565875,
+        "mean_post_turn_made_points": 4.078833693304536,
+        "contact_turns": 733,
+        "mean_threatened_blots_in_contact": 0.7612551159618008,
+        "mean_made_points_in_contact": 4.4242837653478855,
+        "pip_progress": 5976,
+        "mean_advancement_midpoint_distance": 11.318105756358769,
+        "advancement_choice_turns": 693,
+        "mean_advancement_choice_rank": 0.6519324023495738,
+        "checkers_borne_off": 246
+      },
+      "mean_decision_seconds": 0.6964449495724332,
+      "style_overrode_mc_decisions": 147,
+      "mean_mc_utility_sacrificed": 0.0021934946930374875
+    },
+    {
+      "variant": "eight-point-bearoff",
+      "agent": "front-priority",
+      "games": 30,
+      "wins": 14,
+      "win_rate": 0.4666666666666667,
+      "gameplay_behavior": {
+        "turns": 948,
+        "passes": 110,
+        "hits": 164,
+        "hits_per_turn": 0.1729957805907173,
+        "hitting_opportunity_turns": 260,
+        "hit_when_available_rate": 0.5961538461538461,
+        "mean_post_turn_blots": 1.7995780590717299,
+        "mean_post_turn_threatened_blots": 0.5654008438818565,
+        "mean_post_turn_made_points": 4.137130801687764,
+        "contact_turns": 774,
+        "mean_threatened_blots_in_contact": 0.6925064599483204,
+        "mean_made_points_in_contact": 4.529715762273902,
+        "pip_progress": 6247,
+        "mean_advancement_midpoint_distance": 10.590923643348807,
+        "advancement_choice_turns": 743,
+        "mean_advancement_choice_rank": 0.4609839414535388,
+        "checkers_borne_off": 260
+      },
+      "mean_decision_seconds": 0.6493044538086453,
+      "style_overrode_mc_decisions": 47,
+      "mean_mc_utility_sacrificed": 0.00017260149937453867
+    },
+    {
+      "variant": "eight-point-bearoff",
+      "agent": "aggressive",
+      "games": 30,
+      "wins": 17,
+      "win_rate": 0.5666666666666667,
+      "gameplay_behavior": {
+        "turns": 906,
+        "passes": 70,
+        "hits": 190,
+        "hits_per_turn": 0.2097130242825607,
+        "hitting_opportunity_turns": 261,
+        "hit_when_available_rate": 0.6628352490421456,
+        "mean_post_turn_blots": 1.8245033112582782,
+        "mean_post_turn_threatened_blots": 0.5783664459161147,
+        "mean_post_turn_made_points": 4.076158940397351,
+        "contact_turns": 741,
+        "mean_threatened_blots_in_contact": 0.7071524966261808,
+        "mean_made_points_in_contact": 4.5006747638326585,
+        "pip_progress": 6295,
+        "mean_advancement_midpoint_distance": 10.404527402700555,
+        "advancement_choice_turns": 721,
+        "mean_advancement_choice_rank": 0.5093019886895424,
+        "checkers_borne_off": 300
+      },
+      "mean_decision_seconds": 0.4636204884756073,
+      "style_overrode_mc_decisions": 24,
+      "mean_mc_utility_sacrificed": 0.0006292985776263226
+    },
+    {
+      "variant": "eight-point-bearoff",
+      "agent": "defensive",
+      "games": 30,
+      "wins": 14,
+      "win_rate": 0.4666666666666667,
+      "gameplay_behavior": {
+        "turns": 914,
+        "passes": 76,
+        "hits": 181,
+        "hits_per_turn": 0.19803063457330417,
+        "hitting_opportunity_turns": 313,
+        "hit_when_available_rate": 0.5527156549520766,
+        "mean_post_turn_blots": 1.135667396061269,
+        "mean_post_turn_threatened_blots": 0.2603938730853392,
+        "mean_post_turn_made_points": 4.188183807439825,
+        "contact_turns": 741,
+        "mean_threatened_blots_in_contact": 0.32118758434547906,
+        "mean_made_points_in_contact": 4.699055330634278,
+        "pip_progress": 5995,
+        "mean_advancement_midpoint_distance": 9.77189324437031,
+        "advancement_choice_turns": 678,
+        "mean_advancement_choice_rank": 0.4766090003971312,
+        "checkers_borne_off": 298
+      },
+      "mean_decision_seconds": 0.5102411663295758,
+      "style_overrode_mc_decisions": 224,
+      "mean_mc_utility_sacrificed": 0.015289914723346554
+    }
+  ]
+}

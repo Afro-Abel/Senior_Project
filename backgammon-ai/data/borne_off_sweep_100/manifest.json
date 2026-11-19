@@ -1,0 +1,58 @@
+{
+  "weights": [
+    0,
+    2,
+    4,
+    6,
+    8
+  ],
+  "seeds": [
+    980100,
+    980200,
+    980300,
+    980400,
+    980500
+  ],
+  "games_per_batch": 20,
+  "rollouts": 20,
+  "depth": 4,
+  "max_turns": 10000,
+  "opponent": "baseline",
+  "rollout_policy": "heuristic",
+  "frozen_opponent": {
+    "config": {
+      "borne_off": 4.0,
+      "bar": 8.0,
+      "home_points": 2.0,
+      "prime_squared": 1.5,
+      "threatened_blots": 3.0,
+      "scale": 50.0
+    },
+    "rollouts": 20,
+    "depth": 4,
+    "rollout_policy": "heuristic"
+  },
+  "candidate_defaults": {
+    "borne_off": 4.0,
+    "bar": 8.0,
+    "home_points": 2.0,
+    "prime_squared": 1.5,
+    "threatened_blots": 3.0,
+    "scale": 50.0
+  },
+  "source_sha256": {
+    "evaluate_baseline.py": "4ec20013a7c00e66f47e592ce5a9773a5e7f0a017620510e0584f48e083c3c1d",
+    "sweep_borne_off.py": "ec23e0f9ef0dde6df4524b1351927901efe46e6c0bffee2bceb028e7ebf239ce",
+    "validate_random_games.py": "08f39704b959e0d886cf4b9e69c87f50978fbe3bbbf49e04bfb4b7d827e36523",
+    "monte_carlo/heuristic.py": "f62fb066cc313b4158627ed0a3eb570bc8cb03b9e6ab7900476af93d68591686",
+    "monte_carlo/rollout.py": "c5e61ac1902a281ea1d8376ab3f9432c1afe28b35ee083e3466bc172c7adbb1e",
+    "agents/monte_carlo_agent.py": "7b14f7684a2e82170595caf4cdf0821f4058876472e11f4aa8f39e742c682bf0",
+    "agents/gnubg_agent.py": "0469ec86c48f1770ec0c234be3839388b3772604c46c72f1f1fe8e9bff730037",
+    "agents/random_agent.py": "763d8a97ab10d6bec6bc142ca7862cdac8077536da426b632ff0d6c19cfb59ba",
+    "backgammon/game.py": "f3dde641cef6eb4f6cdf64f94cd29f9f2a490082fd0855eb1c4c3018ddf0d811",
+    "backgammon/rules.py": "f9673178f44e02ab8c0a3bae4b815165ae25de1dd3375916993ae46565ec36b7",
+    "backgammon/state.py": "e5638dac09cef1b620e7aea605f00aa7fa59060cae4319ffd7cd31ebd2798f78",
+    "backgammon/move.py": "7e1a07745d19e85b33c6e57973ff641d64744136d0d670afc70fe53f5660e41a"
+  },
+  "python_version": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]"
+}

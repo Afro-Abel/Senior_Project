@@ -1,0 +1,715 @@
+{
+  "status": "complete",
+  "completed_games": 900,
+  "expected_games": 900,
+  "notes": [
+    "Exploratory strength screening; defaults are not changed automatically.",
+    "Choose only after completion, then confirm against zero and 0.05 on fresh held-out seeds.",
+    "Shared RNG initialization does not imply identical game paths.",
+    "Assess win rate, contact-phase threatened blots and made points, and sacrificed MC utility together."
+  ],
+  "candidates": [
+    {
+      "strength": 0.0,
+      "summary": {
+        "games": 100,
+        "mc_wins": 46,
+        "opponent": "baseline",
+        "opponent_wins": 54,
+        "mc_win_rate": 0.46,
+        "mc_win_rate_95pct_wilson": [
+          0.36560808309024106,
+          0.5573513967663177
+        ],
+        "by_mc_player": {
+          "1": {
+            "games": 50,
+            "wins": 21
+          },
+          "-1": {
+            "games": 50,
+            "wins": 25
+          }
+        },
+        "mc_started": 50,
+        "mean_turns": 64.22,
+        "mc_decisions": 3209,
+        "mean_decision_seconds": 0.5614375541980378,
+        "p95_decision_seconds": 2.0146516251843423,
+        "max_decision_seconds": 47.473878792021424,
+        "style_behavior": {
+          "style": "defensive",
+          "evaluated_decisions": 2847,
+          "decisions_with_different_style_options": 2032,
+          "mean_normalized_preference_when_options_differ": 0.7929742802036109,
+          "style_overrode_mc_decisions": 0,
+          "mean_mc_utility_sacrificed": 0.0
+        },
+        "gameplay_behavior": {
+          "candidate": {
+            "turns": 3209,
+            "passes": 362,
+            "hits": 642,
+            "hits_per_turn": 0.2000623247117482,
+            "hitting_opportunity_turns": 1055,
+            "hit_when_available_rate": 0.5677725118483412,
+            "mean_post_turn_blots": 1.6762231224680586,
+            "mean_post_turn_threatened_blots": 0.5531318167653475,
+            "mean_post_turn_made_points": 3.9716422561545652,
+            "contact_turns": 2657,
+            "mean_threatened_blots_in_contact": 0.6680466691757622,
+            "mean_made_points_in_contact": 4.337975159954836,
+            "pip_progress": 21226,
+            "mean_advancement_midpoint_distance": 10.575991708282295,
+            "advancement_choice_turns": 2435,
+            "mean_advancement_choice_rank": 0.5049604248270609,
+            "checkers_borne_off": 905
+          },
+          "opponent": {
+            "turns": 3213,
+            "passes": 333,
+            "hits": 653,
+            "hits_per_turn": 0.20323685029567382,
+            "hitting_opportunity_turns": 1071,
+            "hit_when_available_rate": 0.5639589169000934,
+            "mean_post_turn_blots": 1.6647992530345472,
+            "mean_post_turn_threatened_blots": 0.5508870214752568,
+            "mean_post_turn_made_points": 4.030189853719265,
+            "contact_turns": 2655,
+            "mean_threatened_blots_in_contact": 0.6666666666666666,
+            "mean_made_points_in_contact": 4.412806026365349,
+            "pip_progress": 21331,
+            "mean_advancement_midpoint_distance": 10.464699263981998,
+            "advancement_choice_turns": 2435,
+            "mean_advancement_choice_rank": 0.513153706681726,
+            "checkers_borne_off": 991
+          }
+        }
+      }
+    },
+    {
+      "strength": 0.05,
+      "summary": {
+        "games": 100,
+        "mc_wins": 47,
+        "opponent": "baseline",
+        "opponent_wins": 53,
+        "mc_win_rate": 0.47,
+        "mc_win_rate_95pct_wilson": [
+          0.3751081795934127,
+          0.5671114302990063
+        ],
+        "by_mc_player": {
+          "1": {
+            "games": 50,
+            "wins": 23
+          },
+          "-1": {
+            "games": 50,
+            "wins": 24
+          }
+        },
+        "mc_started": 50,
+        "mean_turns": 60.51,
+        "mc_decisions": 3024,
+        "mean_decision_seconds": 0.5706397127726598,
+        "p95_decision_seconds": 2.0811642908956856,
+        "max_decision_seconds": 30.284848207840696,
+        "style_behavior": {
+          "style": "defensive",
+          "evaluated_decisions": 2701,
+          "decisions_with_different_style_options": 1926,
+          "mean_normalized_preference_when_options_differ": 0.8567914720562696,
+          "style_overrode_mc_decisions": 225,
+          "mean_mc_utility_sacrificed": 0.0009247378941520325
+        },
+        "gameplay_behavior": {
+          "candidate": {
+            "turns": 3024,
+            "passes": 323,
+            "hits": 586,
+            "hits_per_turn": 0.19378306878306878,
+            "hitting_opportunity_turns": 966,
+            "hit_when_available_rate": 0.556935817805383,
+            "mean_post_turn_blots": 1.4735449735449735,
+            "mean_post_turn_threatened_blots": 0.4781746031746032,
+            "mean_post_turn_made_points": 4.190145502645502,
+            "contact_turns": 2480,
+            "mean_threatened_blots_in_contact": 0.5830645161290322,
+            "mean_made_points_in_contact": 4.593145161290322,
+            "pip_progress": 20211,
+            "mean_advancement_midpoint_distance": 10.111746078867943,
+            "advancement_choice_turns": 2301,
+            "mean_advancement_choice_rank": 0.503639838734647,
+            "checkers_borne_off": 910
+          },
+          "opponent": {
+            "turns": 3027,
+            "passes": 314,
+            "hits": 524,
+            "hits_per_turn": 0.17310868847043276,
+            "hitting_opportunity_turns": 916,
+            "hit_when_available_rate": 0.5403930131004366,
+            "mean_post_turn_blots": 1.6914436736042286,
+            "mean_post_turn_threatened_blots": 0.5490584737363726,
+            "mean_post_turn_made_points": 4.110340270895276,
+            "contact_turns": 2480,
+            "mean_threatened_blots_in_contact": 0.6701612903225806,
+            "mean_made_points_in_contact": 4.496370967741935,
+            "pip_progress": 19981,
+            "mean_advancement_midpoint_distance": 10.384290075571792,
+            "advancement_choice_turns": 2355,
+            "mean_advancement_choice_rank": 0.5183883605336026,
+            "checkers_borne_off": 912
+          }
+        }
+      }
+    },
+    {
+      "strength": 0.075,
+      "summary": {
+        "games": 100,
+        "mc_wins": 45,
+        "opponent": "baseline",
+        "opponent_wins": 55,
+        "mc_win_rate": 0.45,
+        "mc_win_rate_95pct_wilson": [
+          0.3561453797951198,
+          0.5475539700255787
+        ],
+        "by_mc_player": {
+          "1": {
+            "games": 50,
+            "wins": 25
+          },
+          "-1": {
+            "games": 50,
+            "wins": 20
+          }
+        },
+        "mc_started": 50,
+        "mean_turns": 61.05,
+        "mc_decisions": 3050,
+        "mean_decision_seconds": 0.5738063323934425,
+        "p95_decision_seconds": 2.1547010000795126,
+        "max_decision_seconds": 50.54013445787132,
+        "style_behavior": {
+          "style": "defensive",
+          "evaluated_decisions": 2689,
+          "decisions_with_different_style_options": 1911,
+          "mean_normalized_preference_when_options_differ": 0.8731345562978216,
+          "style_overrode_mc_decisions": 300,
+          "mean_mc_utility_sacrificed": 0.0017619274234598966
+        },
+        "gameplay_behavior": {
+          "candidate": {
+            "turns": 3050,
+            "passes": 361,
+            "hits": 559,
+            "hits_per_turn": 0.18327868852459017,
+            "hitting_opportunity_turns": 924,
+            "hit_when_available_rate": 0.553030303030303,
+            "mean_post_turn_blots": 1.4121311475409837,
+            "mean_post_turn_threatened_blots": 0.4459016393442623,
+            "mean_post_turn_made_points": 4.197704918032787,
+            "contact_turns": 2514,
+            "mean_threatened_blots_in_contact": 0.5409705648369133,
+            "mean_made_points_in_contact": 4.624502784407319,
+            "pip_progress": 20082,
+            "mean_advancement_midpoint_distance": 10.065332138233243,
+            "advancement_choice_turns": 2273,
+            "mean_advancement_choice_rank": 0.5090066323286391,
+            "checkers_borne_off": 900
+          },
+          "opponent": {
+            "turns": 3055,
+            "passes": 331,
+            "hits": 506,
+            "hits_per_turn": 0.1656301145662848,
+            "hitting_opportunity_turns": 894,
+            "hit_when_available_rate": 0.5357941834451901,
+            "mean_post_turn_blots": 1.6317512274959083,
+            "mean_post_turn_threatened_blots": 0.5430441898527005,
+            "mean_post_turn_made_points": 4.130605564648118,
+            "contact_turns": 2514,
+            "mean_threatened_blots_in_contact": 0.6599045346062052,
+            "mean_made_points_in_contact": 4.517104216388226,
+            "pip_progress": 20185,
+            "mean_advancement_midpoint_distance": 10.23262323507555,
+            "advancement_choice_turns": 2358,
+            "mean_advancement_choice_rank": 0.5261190881365471,
+            "checkers_borne_off": 951
+          }
+        }
+      }
+    },
+    {
+      "strength": 0.1,
+      "summary": {
+        "games": 100,
+        "mc_wins": 50,
+        "opponent": "baseline",
+        "opponent_wins": 50,
+        "mc_win_rate": 0.5,
+        "mc_win_rate_95pct_wilson": [
+          0.4038315303659956,
+          0.5961684696340044
+        ],
+        "by_mc_player": {
+          "1": {
+            "games": 50,
+            "wins": 28
+          },
+          "-1": {
+            "games": 50,
+            "wins": 22
+          }
+        },
+        "mc_started": 50,
+        "mean_turns": 61.66,
+        "mc_decisions": 3083,
+        "mean_decision_seconds": 0.5958326594130581,
+        "p95_decision_seconds": 2.0693618750665337,
+        "max_decision_seconds": 67.4985034998972,
+        "style_behavior": {
+          "style": "defensive",
+          "evaluated_decisions": 2716,
+          "decisions_with_different_style_options": 1914,
+          "mean_normalized_preference_when_options_differ": 0.8855715499524277,
+          "style_overrode_mc_decisions": 323,
+          "mean_mc_utility_sacrificed": 0.0025384689124178807
+        },
+        "gameplay_behavior": {
+          "candidate": {
+            "turns": 3083,
+            "passes": 367,
+            "hits": 572,
+            "hits_per_turn": 0.18553357119688615,
+            "hitting_opportunity_turns": 937,
+            "hit_when_available_rate": 0.5645677694770544,
+            "mean_post_turn_blots": 1.406422315926046,
+            "mean_post_turn_threatened_blots": 0.4414531300681155,
+            "mean_post_turn_made_points": 4.252351605578982,
+            "contact_turns": 2511,
+            "mean_threatened_blots_in_contact": 0.5420151334129829,
+            "mean_made_points_in_contact": 4.713659896455596,
+            "pip_progress": 20209,
+            "mean_advancement_midpoint_distance": 10.109629373051611,
+            "advancement_choice_turns": 2305,
+            "mean_advancement_choice_rank": 0.5016244490996328,
+            "checkers_borne_off": 938
+          },
+          "opponent": {
+            "turns": 3083,
+            "passes": 351,
+            "hits": 529,
+            "hits_per_turn": 0.17158611741809926,
+            "hitting_opportunity_turns": 903,
+            "hit_when_available_rate": 0.5548172757475083,
+            "mean_post_turn_blots": 1.6561790463833928,
+            "mean_post_turn_threatened_blots": 0.5433019785922802,
+            "mean_post_turn_made_points": 4.101200129743756,
+            "contact_turns": 2517,
+            "mean_threatened_blots_in_contact": 0.6654747715534366,
+            "mean_made_points_in_contact": 4.4914580850218515,
+            "pip_progress": 20321,
+            "mean_advancement_midpoint_distance": 10.287904138575858,
+            "advancement_choice_turns": 2350,
+            "mean_advancement_choice_rank": 0.5284412386022608,
+            "checkers_borne_off": 924
+          }
+        }
+      }
+    },
+    {
+      "strength": 0.15,
+      "summary": {
+        "games": 100,
+        "mc_wins": 48,
+        "opponent": "baseline",
+        "opponent_wins": 52,
+        "mc_win_rate": 0.48,
+        "mc_win_rate_95pct_wilson": [
+          0.384645517580519,
+          0.5768342223477603
+        ],
+        "by_mc_player": {
+          "1": {
+            "games": 50,
+            "wins": 29
+          },
+          "-1": {
+            "games": 50,
+            "wins": 19
+          }
+        },
+        "mc_started": 50,
+        "mean_turns": 60.96,
+        "mc_decisions": 3047,
+        "mean_decision_seconds": 0.5884821145061109,
+        "p95_decision_seconds": 2.124171500094235,
+        "max_decision_seconds": 48.60231637512334,
+        "style_behavior": {
+          "style": "defensive",
+          "evaluated_decisions": 2692,
+          "decisions_with_different_style_options": 1866,
+          "mean_normalized_preference_when_options_differ": 0.9034937106480515,
+          "style_overrode_mc_decisions": 395,
+          "mean_mc_utility_sacrificed": 0.004255419108294037
+        },
+        "gameplay_behavior": {
+          "candidate": {
+            "turns": 3047,
+            "passes": 355,
+            "hits": 561,
+            "hits_per_turn": 0.18411552346570398,
+            "hitting_opportunity_turns": 932,
+            "hit_when_available_rate": 0.555793991416309,
+            "mean_post_turn_blots": 1.3800459468329505,
+            "mean_post_turn_threatened_blots": 0.42533639645553,
+            "mean_post_turn_made_points": 4.24581555628487,
+            "contact_turns": 2462,
+            "mean_threatened_blots_in_contact": 0.5264012997562957,
+            "mean_made_points_in_contact": 4.714459788789602,
+            "pip_progress": 19972,
+            "mean_advancement_midpoint_distance": 10.012617664730623,
+            "advancement_choice_turns": 2262,
+            "mean_advancement_choice_rank": 0.5026873444901734,
+            "checkers_borne_off": 942
+          },
+          "opponent": {
+            "turns": 3049,
+            "passes": 312,
+            "hits": 495,
+            "hits_per_turn": 0.16234831092161364,
+            "hitting_opportunity_turns": 877,
+            "hit_when_available_rate": 0.5370581527936146,
+            "mean_post_turn_blots": 1.6467694326008528,
+            "mean_post_turn_threatened_blots": 0.5464086585765825,
+            "mean_post_turn_made_points": 4.105936372581174,
+            "contact_turns": 2471,
+            "mean_threatened_blots_in_contact": 0.6742209631728046,
+            "mean_made_points_in_contact": 4.525698097936059,
+            "pip_progress": 20387,
+            "mean_advancement_midpoint_distance": 10.21315053710698,
+            "advancement_choice_turns": 2368,
+            "mean_advancement_choice_rank": 0.5252012434544155,
+            "checkers_borne_off": 966
+          }
+        }
+      }
+    },
+    {
+      "strength": 0.2,
+      "summary": {
+        "games": 100,
+        "mc_wins": 47,
+        "opponent": "baseline",
+        "opponent_wins": 53,
+        "mc_win_rate": 0.47,
+        "mc_win_rate_95pct_wilson": [
+          0.3751081795934127,
+          0.5671114302990063
+        ],
+        "by_mc_player": {
+          "1": {
+            "games": 50,
+            "wins": 29
+          },
+          "-1": {
+            "games": 50,
+            "wins": 18
+          }
+        },
+        "mc_started": 50,
+        "mean_turns": 60.77,
+        "mc_decisions": 3037,
+        "mean_decision_seconds": 0.5474192246437903,
+        "p95_decision_seconds": 2.0325354170054197,
+        "max_decision_seconds": 42.03081487491727,
+        "style_behavior": {
+          "style": "defensive",
+          "evaluated_decisions": 2707,
+          "decisions_with_different_style_options": 1908,
+          "mean_normalized_preference_when_options_differ": 0.9209786544692206,
+          "style_overrode_mc_decisions": 468,
+          "mean_mc_utility_sacrificed": 0.006632338221771564
+        },
+        "gameplay_behavior": {
+          "candidate": {
+            "turns": 3037,
+            "passes": 330,
+            "hits": 552,
+            "hits_per_turn": 0.18175831412578203,
+            "hitting_opportunity_turns": 952,
+            "hit_when_available_rate": 0.5462184873949579,
+            "mean_post_turn_blots": 1.2736252881132697,
+            "mean_post_turn_threatened_blots": 0.3924925913730655,
+            "mean_post_turn_made_points": 4.2624300296345075,
+            "contact_turns": 2499,
+            "mean_threatened_blots_in_contact": 0.4769907963185274,
+            "mean_made_points_in_contact": 4.719887955182073,
+            "pip_progress": 20070,
+            "mean_advancement_midpoint_distance": 10.01096163428002,
+            "advancement_choice_turns": 2261,
+            "mean_advancement_choice_rank": 0.49372975819111703,
+            "checkers_borne_off": 933
+          },
+          "opponent": {
+            "turns": 3040,
+            "passes": 309,
+            "hits": 490,
+            "hits_per_turn": 0.1611842105263158,
+            "hitting_opportunity_turns": 844,
+            "hit_when_available_rate": 0.5556872037914692,
+            "mean_post_turn_blots": 1.707236842105263,
+            "mean_post_turn_threatened_blots": 0.5453947368421053,
+            "mean_post_turn_made_points": 4.105592105263158,
+            "contact_turns": 2506,
+            "mean_threatened_blots_in_contact": 0.6616121308858739,
+            "mean_made_points_in_contact": 4.48244213886672,
+            "pip_progress": 20347,
+            "mean_advancement_midpoint_distance": 10.286946478596354,
+            "advancement_choice_turns": 2367,
+            "mean_advancement_choice_rank": 0.525156371910092,
+            "checkers_borne_off": 923
+          }
+        }
+      }
+    },
+    {
+      "strength": 0.3,
+      "summary": {
+        "games": 100,
+        "mc_wins": 56,
+        "opponent": "baseline",
+        "opponent_wins": 44,
+        "mc_win_rate": 0.56,
+        "mc_win_rate_95pct_wilson": [
+          0.4622810465167699,
+          0.6532797336983921
+        ],
+        "by_mc_player": {
+          "1": {
+            "games": 50,
+            "wins": 29
+          },
+          "-1": {
+            "games": 50,
+            "wins": 27
+          }
+        },
+        "mc_started": 50,
+        "mean_turns": 61.38,
+        "mc_decisions": 3072,
+        "mean_decision_seconds": 0.5563134817809138,
+        "p95_decision_seconds": 2.1158337499946356,
+        "max_decision_seconds": 29.20446820813231,
+        "style_behavior": {
+          "style": "defensive",
+          "evaluated_decisions": 2745,
+          "decisions_with_different_style_options": 1905,
+          "mean_normalized_preference_when_options_differ": 0.9506462828510073,
+          "style_overrode_mc_decisions": 611,
+          "mean_mc_utility_sacrificed": 0.01240634267689287
+        },
+        "gameplay_behavior": {
+          "candidate": {
+            "turns": 3072,
+            "passes": 327,
+            "hits": 575,
+            "hits_per_turn": 0.18717447916666666,
+            "hitting_opportunity_turns": 949,
+            "hit_when_available_rate": 0.5785036880927292,
+            "mean_post_turn_blots": 1.1748046875,
+            "mean_post_turn_threatened_blots": 0.3147786458333333,
+            "mean_post_turn_made_points": 4.298502604166667,
+            "contact_turns": 2503,
+            "mean_threatened_blots_in_contact": 0.3863363963244107,
+            "mean_made_points_in_contact": 4.777467039552537,
+            "pip_progress": 20207,
+            "mean_advancement_midpoint_distance": 9.769164151036769,
+            "advancement_choice_turns": 2280,
+            "mean_advancement_choice_rank": 0.49272922513997,
+            "checkers_borne_off": 1018
+          },
+          "opponent": {
+            "turns": 3066,
+            "passes": 335,
+            "hits": 441,
+            "hits_per_turn": 0.14383561643835616,
+            "hitting_opportunity_turns": 721,
+            "hit_when_available_rate": 0.5894590846047156,
+            "mean_post_turn_blots": 1.735159817351598,
+            "mean_post_turn_threatened_blots": 0.5459882583170255,
+            "mean_post_turn_made_points": 4.114807566862361,
+            "contact_turns": 2507,
+            "mean_threatened_blots_in_contact": 0.6677303550059832,
+            "mean_made_points_in_contact": 4.500997207818109,
+            "pip_progress": 20306,
+            "mean_advancement_midpoint_distance": 10.428888013395056,
+            "advancement_choice_turns": 2410,
+            "mean_advancement_choice_rank": 0.5151289567416727,
+            "checkers_borne_off": 837
+          }
+        }
+      }
+    },
+    {
+      "strength": 0.5,
+      "summary": {
+        "games": 100,
+        "mc_wins": 57,
+        "opponent": "baseline",
+        "opponent_wins": 43,
+        "mc_win_rate": 0.57,
+        "mc_win_rate_95pct_wilson": [
+          0.47215389549212305,
+          0.6626670147588988
+        ],
+        "by_mc_player": {
+          "1": {
+            "games": 50,
+            "wins": 32
+          },
+          "-1": {
+            "games": 50,
+            "wins": 25
+          }
+        },
+        "mc_started": 50,
+        "mean_turns": 58.79,
+        "mc_decisions": 2943,
+        "mean_decision_seconds": 0.5685801132440673,
+        "p95_decision_seconds": 2.0207576658576727,
+        "max_decision_seconds": 135.038617500104,
+        "style_behavior": {
+          "style": "defensive",
+          "evaluated_decisions": 2685,
+          "decisions_with_different_style_options": 1858,
+          "mean_normalized_preference_when_options_differ": 0.971382827195529,
+          "style_overrode_mc_decisions": 691,
+          "mean_mc_utility_sacrificed": 0.017087472891485097
+        },
+        "gameplay_behavior": {
+          "candidate": {
+            "turns": 2943,
+            "passes": 258,
+            "hits": 525,
+            "hits_per_turn": 0.1783893985728848,
+            "hitting_opportunity_turns": 932,
+            "hit_when_available_rate": 0.5396995708154506,
+            "mean_post_turn_blots": 1.0788311247026843,
+            "mean_post_turn_threatened_blots": 0.2677539925246347,
+            "mean_post_turn_made_points": 4.303431872239211,
+            "contact_turns": 2350,
+            "mean_threatened_blots_in_contact": 0.3353191489361702,
+            "mean_made_points_in_contact": 4.866382978723404,
+            "pip_progress": 19708,
+            "mean_advancement_midpoint_distance": 9.473614775725594,
+            "advancement_choice_turns": 2201,
+            "mean_advancement_choice_rank": 0.4798264188133991,
+            "checkers_borne_off": 1067
+          },
+          "opponent": {
+            "turns": 2936,
+            "passes": 301,
+            "hits": 385,
+            "hits_per_turn": 0.1311307901907357,
+            "hitting_opportunity_turns": 613,
+            "hit_when_available_rate": 0.6052202283849919,
+            "mean_post_turn_blots": 1.7036784741144415,
+            "mean_post_turn_threatened_blots": 0.547683923705722,
+            "mean_post_turn_made_points": 4.162465940054496,
+            "contact_turns": 2359,
+            "mean_threatened_blots_in_contact": 0.6816447647308181,
+            "mean_made_points_in_contact": 4.5498092412039,
+            "pip_progress": 19656,
+            "mean_advancement_midpoint_distance": 10.207977207977208,
+            "advancement_choice_turns": 2321,
+            "mean_advancement_choice_rank": 0.513977194242579,
+            "checkers_borne_off": 815
+          }
+        }
+      }
+    },
+    {
+      "strength": 1.0,
+      "summary": {
+        "games": 100,
+        "mc_wins": 51,
+        "opponent": "baseline",
+        "opponent_wins": 49,
+        "mc_win_rate": 0.51,
+        "mc_win_rate_95pct_wilson": [
+          0.4134801193402717,
+          0.6057800106955886
+        ],
+        "by_mc_player": {
+          "1": {
+            "games": 50,
+            "wins": 27
+          },
+          "-1": {
+            "games": 50,
+            "wins": 24
+          }
+        },
+        "mc_started": 50,
+        "mean_turns": 56.39,
+        "mc_decisions": 2820,
+        "mean_decision_seconds": 0.5676852170426683,
+        "p95_decision_seconds": 2.0609117499552667,
+        "max_decision_seconds": 124.10526112490334,
+        "style_behavior": {
+          "style": "defensive",
+          "evaluated_decisions": 2600,
+          "decisions_with_different_style_options": 1778,
+          "mean_normalized_preference_when_options_differ": 0.990725002718816,
+          "style_overrode_mc_decisions": 794,
+          "mean_mc_utility_sacrificed": 0.026745373556055593
+        },
+        "gameplay_behavior": {
+          "candidate": {
+            "turns": 2820,
+            "passes": 220,
+            "hits": 472,
+            "hits_per_turn": 0.1673758865248227,
+            "hitting_opportunity_turns": 867,
+            "hit_when_available_rate": 0.5294117647058824,
+            "mean_post_turn_blots": 1.00354609929078,
+            "mean_post_turn_threatened_blots": 0.2273049645390071,
+            "mean_post_turn_made_points": 4.389716312056738,
+            "contact_turns": 2233,
+            "mean_threatened_blots_in_contact": 0.28705776981639053,
+            "mean_made_points_in_contact": 4.957456336766682,
+            "pip_progress": 19242,
+            "mean_advancement_midpoint_distance": 9.301579877351626,
+            "advancement_choice_turns": 2151,
+            "mean_advancement_choice_rank": 0.49342938892422156,
+            "checkers_borne_off": 996
+          },
+          "opponent": {
+            "turns": 2819,
+            "passes": 299,
+            "hits": 326,
+            "hits_per_turn": 0.11564384533522526,
+            "hitting_opportunity_turns": 538,
+            "hit_when_available_rate": 0.587360594795539,
+            "mean_post_turn_blots": 1.6768357573607662,
+            "mean_post_turn_threatened_blots": 0.5352962043277758,
+            "mean_post_turn_made_points": 4.127350124157503,
+            "contact_turns": 2249,
+            "mean_threatened_blots_in_contact": 0.670964873277012,
+            "mean_made_points_in_contact": 4.557581147176523,
+            "pip_progress": 18755,
+            "mean_advancement_midpoint_distance": 9.932631298320448,
+            "advancement_choice_turns": 2208,
+            "mean_advancement_choice_rank": 0.5081931764013418,
+            "checkers_borne_off": 893
+          }
+        }
+      }
+    }
+  ]
+}

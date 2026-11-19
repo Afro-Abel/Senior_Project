@@ -1,3 +1,8 @@
 __pycache__/
 *.py[cod]
 .venv*/
+
+# Local experiment process bookkeeping
+backgammon-ai/data/**/*.pid
+backgammon-ai/data/**/.lock
+backgammon-ai/data/**/*.tmp

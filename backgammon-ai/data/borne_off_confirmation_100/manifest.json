@@ -1,0 +1,59 @@
+{
+  "weights": [
+    0,
+    4
+  ],
+  "seeds": [
+    1000000,
+    1000100,
+    1000200,
+    1000300,
+    1000400
+  ],
+  "games_per_batch": 20,
+  "rollouts": 20,
+  "depth": 4,
+  "max_turns": 10000,
+  "opponent": "gnubg",
+  "rollout_policy": "heuristic",
+  "frozen_opponent": {
+    "package": "gnubg-nn",
+    "version": "1.1.0a11",
+    "python": "3.13.15",
+    "architecture": "arm64",
+    "objective": "single-game win probability; no gammon/cube bonus",
+    "evaluation_plies": 0,
+    "policy": "rank own legal unique outcomes",
+    "data_sha256": {
+      "gnubg.weights": "f9a958c7d0d8e3b8bd2f09eb1974642400370cb258e1f8956df6c431f78f5bad",
+      "gnubg_os.db": "38089567e87a681682bb4ff53f30d781af215fc04debbdff3f61b6db68547a49",
+      "gnubg_os0.bd": "38089567e87a681682bb4ff53f30d781af215fc04debbdff3f61b6db68547a49",
+      "gnubg_ts0.bd": "9eac8a2c697dae8a09f2e5653022084b9e725df6c32950cb5299b273fc64500f"
+    },
+    "native_module_sha256": "684e17e6bead68275aaf5b8e8d1511d09a9f1b7d44dfaf5801b9bc3d53e00163"
+  },
+  "decision_rule": "Retain weight 4 unless 0 improves held-out win rate with two-sided exact matched-discordance p < 0.05; no automatic changes.",
+  "candidate_defaults": {
+    "borne_off": 4.0,
+    "bar": 8.0,
+    "home_points": 2.0,
+    "prime_squared": 1.5,
+    "threatened_blots": 3.0,
+    "scale": 50.0
+  },
+  "source_sha256": {
+    "evaluate_baseline.py": "4ec20013a7c00e66f47e592ce5a9773a5e7f0a017620510e0584f48e083c3c1d",
+    "confirm_borne_off.py": "6ce6eb886f27af52cb283a5b97f8d248ff62f8f5c8e9d9a2ebd5f4364a9912a8",
+    "validate_random_games.py": "08f39704b959e0d886cf4b9e69c87f50978fbe3bbbf49e04bfb4b7d827e36523",
+    "monte_carlo/heuristic.py": "f62fb066cc313b4158627ed0a3eb570bc8cb03b9e6ab7900476af93d68591686",
+    "monte_carlo/rollout.py": "c5e61ac1902a281ea1d8376ab3f9432c1afe28b35ee083e3466bc172c7adbb1e",
+    "agents/monte_carlo_agent.py": "7b14f7684a2e82170595caf4cdf0821f4058876472e11f4aa8f39e742c682bf0",
+    "agents/gnubg_agent.py": "0469ec86c48f1770ec0c234be3839388b3772604c46c72f1f1fe8e9bff730037",
+    "agents/random_agent.py": "763d8a97ab10d6bec6bc142ca7862cdac8077536da426b632ff0d6c19cfb59ba",
+    "backgammon/game.py": "f3dde641cef6eb4f6cdf64f94cd29f9f2a490082fd0855eb1c4c3018ddf0d811",
+    "backgammon/rules.py": "f9673178f44e02ab8c0a3bae4b815165ae25de1dd3375916993ae46565ec36b7",
+    "backgammon/state.py": "e5638dac09cef1b620e7aea605f00aa7fa59060cae4319ffd7cd31ebd2798f78",
+    "backgammon/move.py": "7e1a07745d19e85b33c6e57973ff641d64744136d0d670afc70fe53f5660e41a"
+  },
+  "python_version": "3.13.15 (main, Aug  5 2026, 12:25:43) [Clang 21.0.0 (clang-2100.1.1.101)]"
+}

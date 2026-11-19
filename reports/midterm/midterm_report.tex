@@ -1,0 +1,75 @@
+% Senior Project: Midterm Progress Report
+% Chapter structure adapted from the supplied CPSC 4900 thesis template.
+% University and email details are placeholders in titlepage.tex.
+\documentclass[12pt,twoside]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\graphicspath{{images/}}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[a4paper,width=150mm,top=35mm,bottom=35mm,bindingoffset=6mm]{geometry}
+\usepackage{float}
+\usepackage{url}
+\urlstyle{same}
+\usepackage{xcolor}
+\newcommand{\blue}[1]{\textcolor{blue}{{ *sk: #1}}}
+\usepackage[colorlinks,bookmarksopen,bookmarksnumbered,citecolor=black,urlcolor=black]{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\titleformat{\chapter}[hang]
+  {\normalfont\huge\bfseries}{\thechapter}{1em}{}
+\titlespacing*{\chapter}{0pt}{35pt}{20pt}
+% biblatex/Biber handles the bibliography; do not also use \bibliographystyle.
+\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
+\addbibresource{references.bib}
+\hypersetup{linkcolor=black}
+\begin{document}
+
+\input{titlepage}
+
+\chapter*{Acknowledgements}
+\input{acknowledgements}
+
+{
+  \hypersetup{linkcolor=black}
+  \tableofcontents
+}
+\clearpage
+
+\input{abstract}
+\clearpage
+% \listoffigures
+% \listoftables
+
+\chapter{Introduction}
+\input{introduction}
+
+\chapter{Background}\label{ch:background}
+\input{background}
+
+\chapter{Methodology}\label{ch:methodology}
+\input{methodology}
+
+\chapter{Results}\label{ch:results}
+\input{results}
+
+\chapter{Related Work}\label{ch:relatedwork}
+\input{relatedwork}
+
+\chapter{Conclusions}\label{ch:conclusion}
+\input{conclusion}
+
+\chapter{Future Work}\label{ch:futurework}
+\input{futurework}
+
+\printbibliography[heading=bibintoc]
+
+\appendix
+\chapter{Reproducibility and Evidence Records}\label{ch:appendices}
+\input{appendices}
+
+\end{document}

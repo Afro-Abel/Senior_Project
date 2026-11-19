@@ -1,0 +1,72 @@
+\section{Platform and game engine}
+
+The implementation uses Python and its standard library. The state contains a signed list of 24 point counts, separate bar and borne-off counts for each player, and the current player. Positive counts represent Player 1, who moves toward point 1; negative counts represent Player 2, who moves toward point 24. Independent state copies allow hypothetical moves without changing the actual game.
+
+The code separates state representation, move structures, rules, game flow, agents, and evaluation. The rules module generates complete legal movement sequences. The game layer applies turns, switches players, rolls dice, and checks winners. The opening contest rolls one die per player, repeats ties, and lets the higher roller start using both dice. A terminal interface supports manual inspection and human play. Doubling-cube and match-scoring behavior are outside the current prototype.
+
+The decision pipeline is:
+
+\begin{figure}[htbp]
+\centering
+\begin{tabular}{c}
+\fbox{\parbox{0.78\linewidth}{\centering Actual state and observed dice}} \\
+$\downarrow$ \\
+\fbox{\parbox{0.78\linewidth}{\centering Rules engine: legal complete move sequences}} \\
+$\downarrow$ \\
+\fbox{\parbox{0.78\linewidth}{\centering Deduplication: distinct resulting states}} \\
+$\downarrow$ \\
+\fbox{\parbox{0.78\linewidth}{\centering N depth-limited rollouts per candidate}} \\
+$\downarrow$ \\
+\fbox{\parbox{0.78\linewidth}{\centering Mean utility and selection of a legal representative}} \\
+\end{tabular}
+\caption{Flat Monte Carlo decision pipeline after the actual dice are known. The rules engine generates complete legal turns, and equivalent resulting states share one candidate. Each nonterminal candidate receives $N$ simulated continuations, each limited to $d$ subsequent individual player turns or an earlier terminal outcome. Simulated dice are sampled, moves follow the selected random or heuristic-guided policy, and ending scores use the original decision maker's perspective. Only the selected legal move changes the actual board.}\label{fig:decision-pipeline}
+\end{figure}
+
+Different sequences can produce the same complete state. The agent deduplicates these outcomes using the board, bar, borne-off counts, and current player, retaining one legal representative. For the tested opening roll of 2 and 6 for Player 2, 28 legal sequences reduce to 14 distinct outcomes. Thus, 20 rollouts require 280 simulations for that decision, rather than 560. The rules engine retains the original legal sequences for validation and other callers.
+
+\section{Flat Monte Carlo decision method}
+
+For a state $s$, observed dice $r$, and candidate action $a$, the agent estimates:
+
+\[
+\widehat{Q}(s,a)=\frac{1}{N}\sum_{i=1}^{N}V_p(s_{i,d}),
+\]
+
+where $N$ is the rollout count, $p$ is the player making the original decision, and $s_{i,d}$ is the state reached after at most $d$ subsequent player turns. The agent chooses an action with the highest average score, breaking ties randomly. Immediate winning candidates receive an exact score without simulation. A forced pass returns no action.
+
+Each decision follows this algorithm:
+
+\begin{enumerate}
+\item Generate legal complete turns for the actual dice.
+\item Apply each turn to a copied state and retain distinct outcomes.
+\item For each nonterminal outcome, begin with the opponent to move.
+\item Run $N$ simulations, sampling dice and selecting moves under the chosen rollout policy for at most $d$ turns.
+\item Score each ending state from the original player's perspective and average the scores.
+\item Return a legal representative of a highest-scoring outcome.
+\end{enumerate}
+
+Two rollout policies are implemented. The random policy samples legal move sequences uniformly. The guided policy evaluates distinct immediate outcomes from the simulated acting player's perspective and chooses a highest-scoring move, with random tie-breaking. Guided rollouts do not invoke another Monte Carlo search. Both policies use random dice and the same final cutoff heuristic.
+
+\section{Shared position heuristic}
+
+The heuristic combines race progress with contact-related structure. Let $P$ denote pip count, $O$ borne-off checkers, $B$ bar checkers, $H$ made home points, $L$ longest consecutive run of made points, and $T$ directly threatened blots. Subscripts $p$ and $o$ refer to the original player and opponent. The raw score is:
+
+\[
+R=(P_o-P_p)+4(O_p-O_o)
+\]
+
+and, while contact remains possible, it additionally includes:
+
+\[
+8(B_o-B_p)+2(H_p-H_o)+1.5(L_p^2-L_o^2)+3(T_o-T_p).
+\]
+
+Pip count measures remaining checker travel and assigns 25 pips to each bar checker. Made points contain at least two own checkers. Threatened blots use a direct single-die reachability proxy, including bar entry, rather than exact hitting probabilities; combined-dice hits are omitted. Once the players have passed each other and neither has bar checkers, contact terms are disabled.
+
+For nonterminal states, the returned utility is $V_p(s)=0.99\tanh(R/50)$. A completed win returns $+1$ and a completed loss returns $-1$. The weights are provisional design choices, not learned or empirically optimized coefficients. In particular, the borne-off and bar terms intentionally supplement effects already represented in pip count. Their usefulness still requires sensitivity testing.
+
+\section{Evaluation and reproducibility}
+
+The evaluator alternates the main agent between Player 1 and Player 2, while the opening contest independently decides who starts. Each game has separate seeded streams for actual dice, the main agent, and its opponent. Identical code, settings, and seeds reproduce game outcomes; decision timings vary. Repeating an identical seed batch is a replay, not new evidence.
+
+Reports save settings, source hashes, seeds, game results, and per-decision timing. Checks detect illegal actions, incorrect forced passes or dice usage, mutation of the actual state during search, checker-count violations, and invalid terminal outcomes. Exceeding the game turn limit raises an error rather than recording a draw. The random opponent samples sequences, while heuristic candidates are deduplicated; these are distinct policies and should not be interpreted as equivalent sampling schemes.

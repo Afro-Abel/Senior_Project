@@ -1,0 +1,104 @@
+{
+  "purpose": "exploratory screening, not held-out confirmation or automatic tuning",
+  "comparison": "candidate parameters affect cutoff and both simulated players; actual opponent frozen",
+  "runs": [
+    {
+      "report": "data/tuning_borne_off_screen_s960000/heuristic_default_s960000.json",
+      "settings": {
+        "games": 20,
+        "opponent": "gnubg",
+        "rollouts": 20,
+        "depth": 4,
+        "rollout_policy": "heuristic",
+        "seed": 960000,
+        "heuristic_config": {
+          "borne_off": 4,
+          "bar": 8,
+          "home_points": 2,
+          "prime_squared": 1.5,
+          "threatened_blots": 3,
+          "scale": 50
+        },
+        "max_turns": 10000,
+        "output": "data/tuning_borne_off_screen_s960000/heuristic_default_s960000.json",
+        "heuristic_config_path": "configs/heuristic_default.json"
+      },
+      "summary": {
+        "games": 20,
+        "mc_wins": 3,
+        "opponent": "gnubg",
+        "opponent_wins": 17,
+        "mc_win_rate": 0.15,
+        "mc_win_rate_95pct_wilson": [
+          0.052368745896216595,
+          0.36041886474075696
+        ],
+        "by_mc_player": {
+          "1": {
+            "games": 10,
+            "wins": 0
+          },
+          "-1": {
+            "games": 10,
+            "wins": 3
+          }
+        },
+        "mc_started": 9,
+        "mean_turns": 57.1,
+        "mc_decisions": 567,
+        "mean_decision_seconds": 0.4920015814348668,
+        "p95_decision_seconds": 1.9548302090261132,
+        "max_decision_seconds": 8.434659166028723
+      }
+    },
+    {
+      "report": "data/tuning_borne_off_screen_s960000/heuristic_no_borne_off_s960000.json",
+      "settings": {
+        "games": 20,
+        "opponent": "gnubg",
+        "rollouts": 20,
+        "depth": 4,
+        "rollout_policy": "heuristic",
+        "seed": 960000,
+        "heuristic_config": {
+          "borne_off": 0,
+          "bar": 8,
+          "home_points": 2,
+          "prime_squared": 1.5,
+          "threatened_blots": 3,
+          "scale": 50
+        },
+        "max_turns": 10000,
+        "output": "data/tuning_borne_off_screen_s960000/heuristic_no_borne_off_s960000.json",
+        "heuristic_config_path": "configs/heuristic_no_borne_off.json"
+      },
+      "summary": {
+        "games": 20,
+        "mc_wins": 1,
+        "opponent": "gnubg",
+        "opponent_wins": 19,
+        "mc_win_rate": 0.05,
+        "mc_win_rate_95pct_wilson": [
+          0.008881448800795402,
+          0.23613119344674205
+        ],
+        "by_mc_player": {
+          "1": {
+            "games": 10,
+            "wins": 0
+          },
+          "-1": {
+            "games": 10,
+            "wins": 1
+          }
+        },
+        "mc_started": 9,
+        "mean_turns": 61.1,
+        "mc_decisions": 606,
+        "mean_decision_seconds": 0.49296135737379343,
+        "p95_decision_seconds": 2.0462428339524195,
+        "max_decision_seconds": 8.588930000085384
+      }
+    }
+  ]
+}

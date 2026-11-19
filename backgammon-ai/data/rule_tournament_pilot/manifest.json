@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "variants": [
+    "standard",
+    "single-hit",
+    "relaxed-bar",
+    "no-doubles-bonus",
+    "eight-point-bearoff"
+  ],
+  "pairs": [
+    [
+      "rear-priority",
+      "front-priority"
+    ],
+    [
+      "rear-priority",
+      "aggressive"
+    ],
+    [
+      "rear-priority",
+      "defensive"
+    ],
+    [
+      "front-priority",
+      "aggressive"
+    ],
+    [
+      "front-priority",
+      "defensive"
+    ],
+    [
+      "aggressive",
+      "defensive"
+    ]
+  ],
+  "games_per_matchup": 10,
+  "seed": 1501000,
+  "style_strengths": {
+    "rear-priority": 0.05,
+    "front-priority": 0.01,
+    "aggressive": 0.05,
+    "defensive": 0.5
+  },
+  "rollouts": 20,
+  "depth": 4,
+  "rollout_policy": "heuristic",
+  "max_turns": 10000,
+  "heuristic_config": {
+    "borne_off": 4.0,
+    "bar": 8.0,
+    "home_points": 2.0,
+    "prime_squared": 1.5,
+    "threatened_blots": 3.0,
+    "scale": 50.0
+  },
+  "python_version": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "source_sha256": {
+    "run_tournament.py": "336b17c598f5cd83d1322faf6cfa07b764376dba44cab5583294cd43ead65d16",
+    "evaluate_baseline.py": "96f929ea93654abe12161b662f1a0036a6995fc8a735ce5944c3921afd5c695c",
+    "behavior_metrics.py": "f0e5ab8d597c36f5d8b08b81f03bc11982e78631e6651983e592c267310a25df",
+    "rule_impact.py": "c91d0532ebeaf0de52ce92c9a2e31110c229605ff3c6298dd47e9760657b02ce",
+    "validate_random_games.py": "c40f382c833be04ae368b501675b6b0f16f3e9bbc0d9106938f32e3a1a334924",
+    "agents/aggressive_agent.py": "d9b2ce98b455f0afddafa02d383c164ffc8d141dda72e1a0fbdaf8aa824ee60a",
+    "agents/defensive_agent.py": "ea110939e2523287f62f43668fabe39215d643aacf965dc2aa70ce2cac37ab85",
+    "agents/front_priority_agent.py": "9cdeb56545aa23571c1b78170d733aa3c824b15a56c4085a745eabc965eb9015",
+    "agents/gnubg_agent.py": "0469ec86c48f1770ec0c234be3839388b3772604c46c72f1f1fe8e9bff730037",
+    "agents/monte_carlo_agent.py": "7b14f7684a2e82170595caf4cdf0821f4058876472e11f4aa8f39e742c682bf0",
+    "agents/random_agent.py": "763d8a97ab10d6bec6bc142ca7862cdac8077536da426b632ff0d6c19cfb59ba",
+    "agents/rear_priority_agent.py": "9319281b7cf70e9f5c9370120aa474bb69ce99db949e159fd054acd0fe34832a",
+    "agents/style_defaults.py": "daa0bb7f64f8aef18c790620c14af8dfc60f769937c76154a9306ae81116ab97",
+    "agents/styled_agent.py": "31a5a49df827bfa4f6c108fb3bfcce217d6482cfd926fb2b8ecd4d9c528846fb",
+    "backgammon/display.py": "9677eab09561cd49d514edab4423c7053bdc7e8d958cfe7d239d384d0d4f4359",
+    "backgammon/game.py": "ab81c970cbdc4eb4e4e6532fca396c456007f58447821d2fdf1c2f6da4d2c55e",
+    "backgammon/move.py": "7e1a07745d19e85b33c6e57973ff641d64744136d0d670afc70fe53f5660e41a",
+    "backgammon/rules.py": "0d3c58bcfb2593dc88b387c8c6cb4592f9d888431a4454da975bb09c873e3f90",
+    "backgammon/state.py": "12ec2e8f5a75059a52326f50321a8cb3b5888f1f2adac93823b9ebcfc26d798a",
+    "backgammon/variants.py": "83157eaa58accc0b608d14f6b590d7ac699427a7133a7e4cdb0634bd629b70ce",
+    "monte_carlo/heuristic.py": "129dd85752ceea36e9e2442f7006357a2bbe5aad709132ce1e83f885f6ac774d",
+    "monte_carlo/rollout.py": "c5e61ac1902a281ea1d8376ab3f9432c1afe28b35ee083e3466bc172c7adbb1e"
+  }
+}

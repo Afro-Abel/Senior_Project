@@ -1,0 +1,37 @@
+\section{Reproducing the Current Validation}
+Run the following commands from the \path{backgammon-ai/} directory. The first
+runs the current automated suite. The second plays 40 complete games against
+heuristic-only play using the provisional guided-search configuration.
+
+\begin{small}
+\begin{verbatim}
+python3 -B -m unittest discover -s tests -q
+python3 -B evaluate_baseline.py --opponent heuristic \
+  --games 40 --rollouts 20 --depth 4 \
+  --rollout-policy heuristic --seed 20261017 \
+  --output data/guided_r20_d4_s20261017.json
+\end{verbatim}
+\end{small}
+
+The seed controls pseudorandom dice and move selection. Reusing identical seeds
+and settings replays outcomes and must not be counted as additional games.
+Use a separate output path for each experiment to avoid overwriting evidence.
+
+\section{Retained Results and Source Traceability}
+The report draft describes the project at commit \texttt{55e6b04}. The companion
+\path{results_provenance.json} maps the Results table to saved experiment files,
+settings, and outcomes. This provenance file accompanies the LaTeX project but
+is not required for compilation. Filenames are not treated as authoritative
+configuration records; settings inside the saved reports determine grouping.
+
+The 53/80 guided-search result pools the retained files
+\path{guided_r20_d4.json} and \path{guided_r20_d4_s5000.json}.
+The five-rollout result pools \path{guided_r20_d4_s10000.json} and
+\path{guided_r20_d4_s11000.json}; despite their names, those files record five
+rollouts. An overwritten 26/40 batch mentioned in terminal logs is excluded.
+
+\section{Current Scope}
+The implemented engine supports single-game checker movement, bar entry,
+hitting, bearing off, opening rolls, and termination. Doubling-cube behavior,
+match scoring, expert-engine comparison, the four strategic biases, and
+rule-variation experiments remain outside the completed midterm work.

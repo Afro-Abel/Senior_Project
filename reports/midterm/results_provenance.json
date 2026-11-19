@@ -1,0 +1,171 @@
+{
+  "random_r1_d1": {
+    "sources": [
+      {
+        "path": "backgammon-ai/data/baseline_validation.json",
+        "settings": {
+          "games": 40,
+          "rollouts": 1,
+          "depth": 1,
+          "seed": 20261017,
+          "max_turns": 10000,
+          "output": "data/baseline_validation.json"
+        },
+        "wins": 39,
+        "games": 40
+      },
+      {
+        "path": "backgammon-ai/data/baseline_seed5000.json",
+        "settings": {
+          "games": 40,
+          "rollouts": 1,
+          "depth": 1,
+          "seed": 5000,
+          "max_turns": 10000,
+          "output": "data/baseline_seed5000.json"
+        },
+        "wins": 40,
+        "games": 40
+      },
+      {
+        "path": "backgammon-ai/data/baseline_seed6000.json",
+        "settings": {
+          "games": 40,
+          "rollouts": 1,
+          "depth": 1,
+          "seed": 6000,
+          "max_turns": 10000,
+          "output": "data/baseline_seed6000.json"
+        },
+        "wins": 40,
+        "games": 40
+      },
+      {
+        "path": "backgammon-ai/data/baseline_seed7000.json",
+        "settings": {
+          "games": 40,
+          "rollouts": 1,
+          "depth": 1,
+          "seed": 7000,
+          "max_turns": 10000,
+          "output": "data/baseline_seed7000.json"
+        },
+        "wins": 40,
+        "games": 40
+      }
+    ],
+    "total_wins": 159,
+    "total_games": 160
+  },
+  "heuristic_only_vs_random": {
+    "sources": [
+      {
+        "path": "backgammon-ai/data/heuristic_only_validation.json",
+        "settings": {
+          "games": 40,
+          "rollouts": 10,
+          "depth": 0,
+          "seed": 20261017,
+          "max_turns": 10000,
+          "output": "data/heuristic_only_validation.json"
+        },
+        "wins": 40,
+        "games": 40
+      }
+    ],
+    "total_wins": 40,
+    "total_games": 40
+  },
+  "random_r20_d20_vs_heuristic": {
+    "sources": [
+      {
+        "path": "backgammon-ai/data/baseline_vs_heuristic.json",
+        "settings": {
+          "games": 40,
+          "opponent": "heuristic",
+          "rollouts": 20,
+          "depth": 20,
+          "seed": 20261017,
+          "max_turns": 10000,
+          "output": "data/baseline_vs_heuristic.json"
+        },
+        "wins": 4,
+        "games": 40
+      }
+    ],
+    "total_wins": 4,
+    "total_games": 40
+  },
+  "guided_r20_d4_vs_heuristic": {
+    "sources": [
+      {
+        "path": "backgammon-ai/data/guided_r20_d4.json",
+        "settings": {
+          "games": 40,
+          "opponent": "heuristic",
+          "rollouts": 20,
+          "depth": 4,
+          "rollout_policy": "heuristic",
+          "seed": 20261017,
+          "max_turns": 10000,
+          "output": "data/guided_r20_d4.json"
+        },
+        "wins": 29,
+        "games": 40
+      },
+      {
+        "path": "backgammon-ai/data/guided_r20_d4_s5000.json",
+        "settings": {
+          "games": 40,
+          "opponent": "heuristic",
+          "rollouts": 20,
+          "depth": 4,
+          "rollout_policy": "heuristic",
+          "seed": 5000,
+          "max_turns": 10000,
+          "output": "data/guided_r20_d4_s5000.json"
+        },
+        "wins": 24,
+        "games": 40
+      }
+    ],
+    "total_wins": 53,
+    "total_games": 80
+  },
+  "guided_r5_d4_vs_heuristic": {
+    "sources": [
+      {
+        "path": "backgammon-ai/data/guided_r20_d4_s10000.json",
+        "settings": {
+          "games": 40,
+          "opponent": "heuristic",
+          "rollouts": 5,
+          "depth": 4,
+          "rollout_policy": "heuristic",
+          "seed": 10000,
+          "max_turns": 10000,
+          "output": "data/guided_r20_d4_s10000.json"
+        },
+        "wins": 12,
+        "games": 40
+      },
+      {
+        "path": "backgammon-ai/data/guided_r20_d4_s11000.json",
+        "settings": {
+          "games": 40,
+          "opponent": "heuristic",
+          "rollouts": 5,
+          "depth": 4,
+          "rollout_policy": "heuristic",
+          "seed": 11000,
+          "max_turns": 10000,
+          "output": "data/guided_r20_d4_s11000.json"
+        },
+        "wins": 11,
+        "games": 40
+      }
+    ],
+    "total_wins": 23,
+    "total_games": 80
+  }
+}

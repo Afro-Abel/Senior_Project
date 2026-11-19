@@ -1,0 +1,373 @@
+% Active, self-contained midterm progress report.
+% Upload this file alone; there are no external input or bibliography files.
+\documentclass[12pt,twoside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage[a4paper,width=150mm,top=35mm,bottom=35mm,bindingoffset=6mm]{geometry}
+\usepackage[colorlinks,linkcolor=black,urlcolor=black]{hyperref}
+\begin{document}
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+
+        \huge
+        \textbf{AI-Based Playtesting of Backgammon Rule Variations \\
+        Using Monte Carlo Agents}
+
+        \vspace{0.5cm}
+        \LARGE
+        Midterm Progress Report
+
+        \vspace{1cm}
+
+        \Large
+        Abel Adugna\\
+        % Replace the placeholder with \href{mailto:your.email}{your.email}.
+        [Student email address]\\~\\
+        Advisor: Professor James Glenn\\
+        % Replace the placeholder with \href{mailto:advisor.email}{advisor.email}.
+        [Advisor email address]
+
+        \vfill
+
+        A Midterm Progress Report for the Senior Project
+        \\in Computer Science
+
+        \vspace{0.8cm}
+
+        \Large
+        Department of Computer Science\\
+        [University Name]\\
+        October 20, 2026
+    \end{center}
+\end{titlepage}
+
+\clearpage
+\thispagestyle{plain}
+\begin{center}
+    \Large
+    \textbf{AI-Based Playtesting of Backgammon Rule Variations Using Monte Carlo Agents}
+
+    \vspace{0.4cm}
+    \large
+    Midterm Progress Report
+
+    \vspace{0.4cm}
+    \textbf{Abel Adugna}
+
+    \vspace{0.9cm}
+    \textbf{Abstract}
+\end{center}
+
+This project examines how small changes to Backgammon rules affect the performance and behavior of agents with different strategic priorities. Its intended contribution is a reproducible playtesting framework for comparing rear-priority, front-priority, aggressive, and defensive agents under a shared Monte Carlo decision method. The final study will evaluate both game outcomes and observable behavior across standard and modified rules. This midterm report describes the completed simulation platform, initial agent evaluation, and remaining work.
+
+I have implemented a Backgammon engine, a terminal interface, a baseline flat Monte Carlo agent, and automated evaluation tools. The engine supports complete legal turns, hitting, bar entry, bearing off, opening rolls, and game termination. The agent evaluates distinct candidate positions through simulations with configurable rollout counts and depth limits. A shared heuristic evaluates unfinished positions, and simulated moves can be selected randomly or guided by that heuristic. The current automated suite contains 47 passing tests, complemented by an earlier 100-game random-play validation.
+
+Preliminary experiments showed that success against random play did not establish the benefit of lookahead. Random-rollout search struggled against an immediate heuristic opponent, whereas guided search using 20 rollouts per candidate and depth four won 53 of 80 games across two retained batches. Mean decision time was approximately 0.323 seconds. These exploratory findings support a provisional baseline, but do not establish optimal search settings or heuristic weights.
+
+The central rule-variation question remains unanswered. Remaining work includes implementing the four strategic biases, verifying their behavioral differences, tuning the shared evaluation parameters, selecting hypothesis-driven rule variations, and conducting controlled tournaments. With the engine and evaluation infrastructure operational, I consider the project on track for completion within the semester, provided the remaining experiment scope and computational cost remain manageable.
+
+\clearpage
+\section{Introduction and Project Objectives}
+
+Small rule changes can alter the choices a game rewards and the strategies that
+perform well. Evaluating those effects through human play alone requires many
+sessions, particularly in a game such as Backgammon where dice introduce
+variation between games. Automated playtesting offers a way to run repeatable
+comparisons and collect evidence about both outcomes and behavior.
+
+My research question is: How do small Backgammon rule changes affect the
+relative performance and observable behavior of agents with different strategic
+priorities? The planned agents will favor advancing trailing checkers
+(rear-priority), advancing leading checkers (front-priority), hitting opposing
+blots (aggressive), or protecting checkers and building safe positions
+(defensive). All four will use a common Monte Carlo method and configured search
+budget. The intended outcome is an experimental tool for studying strategic
+incentives, rather than an expert-strength Backgammon program.
+
+Work so far has concentrated on establishing a reliable environment and a useful
+baseline before introducing the strategic biases or changing the rules. The
+following sections summarize that implementation, its initial evaluation, and
+the plan for completing the study.
+
+\section{Work Completed}
+
+\subsection{Backgammon Engine and Automated Validation}
+
+I implemented the board representation, legal complete-turn generation, dice
+rolling, hitting, bar entry, bearing off, and winner detection. The opening
+contest rolls one die per player, repeats ties, and lets the higher roller
+start using both dice. A terminal interface supports manual play and inspection.
+The engine uses copied states for hypothetical moves so that agent evaluation
+does not change the actual game.
+
+The automated suite contains 47 passing named tests. Each constructs a known
+situation and checks the expected behavior; several repeat checks for both
+players or multiple inputs. The tests are organized into six groups:
+
+\begin{description}
+    \item[Movement rules: 11 tests.]
+    These check blocked bar entry, mandatory entry before other checker moves,
+    hitting during entry, bearing off with exact and oversized dice, doubles,
+    and forced dice usage. For example, a player must use both dice whenever
+    possible and must use the higher die when only one can be played and either
+    die is individually usable. Mirrored positions check both players.
+
+    \item[Opening rolls: 4 tests.]
+    These verify that the higher roller starts, ties are rerolled, and the
+    first turn uses the opening dice without another roll. Seeded openings
+    must also be reproducible.
+
+    \item[Monte Carlo decisions: 9 tests.]
+    These check legal move selection, rollout budgets, score averaging,
+    selection of the highest mean utility, immediate wins, and forced passes.
+    They also verify that the tested opening's 28 legal sequences reduce to
+    14 distinct outcomes without losing any resulting positions.
+
+    \item[Heuristic and depth behavior: 9 tests.]
+    These verify pip counts, score symmetry between players, progress toward
+    bearing off, protection bonuses, and removal of protection bonuses in a
+    pure race. They also check that depth counts individual player turns,
+    forced passes consume a turn, and depth zero simulates no future turns.
+
+    \item[Rollout policies: 6 tests.]
+    These check turn alternation, guided choices from the acting player's
+    perspective, outcome deduplication, reproducibility, and early stopping
+    at terminal states. The final rollout score must always use the original
+    decision maker's perspective, regardless of which simulated player moved last.
+
+    \item[Evaluation framework: 8 tests.]
+    These check result summaries, confidence-interval calculations, balanced
+    player assignments, reproducible game outcomes, opponent selection, and
+    rejection of illegal agent output. Exceeding the turn limit must raise an
+    error rather than silently recording an unfinished game as a draw.
+\end{description}
+
+An earlier 100-game random-versus-random validation is separate from this test
+suite. It exercised complete games while checking that each player retained
+exactly 15 checkers across the board, bar, and borne-off area, that selected
+moves satisfied the legality and forced-dice checks, and that games ended with
+valid winners. It completed without validation failures. Simulations use copied
+states, and checks verify that evaluating hypothetical moves does not alter the
+actual game state.
+
+The targeted tests verify known situations, while complete-game validation
+exercises combinations encountered during play. Together they support continued
+development, but neither proves that every possible position is handled
+correctly. Likewise, heuristic tests verify the intended calculations and
+properties; they do not establish that the chosen weights produce optimal play.
+
+
+\subsection{Flat Monte Carlo Search and Comparison Agents}
+
+I implemented flat Monte Carlo search with configurable rollout count and depth.
+For each legal candidate, the agent applies the complete turn to a copied board,
+simulates future play, and averages the resulting scores. Depth counts individual
+player turns after the candidate, beginning with the opponent; forced passes
+consume a turn. Simulations stop when the game ends or the limit is reached.
+The agent selects a candidate with the highest mean utility and breaks ties
+randomly. It does not build a search tree or invoke another search inside each
+simulation.
+
+Different movement sequences can lead to the same complete state. The agent
+therefore evaluates each distinct combination of board, bar, and borne-off
+counts once, retaining a legal sequence for the selected outcome. In the tested
+opening roll of two and six for Player 2, 28 legal sequences reduce to 14 distinct
+candidate positions. This removes redundant simulation work.
+
+Two rollout policies are available. Random rollouts choose subsequent legal
+sequences uniformly. Heuristic-guided rollouts evaluate immediate candidate
+positions from the simulated acting player's perspective and choose a
+highest-scoring move, with random tie-breaking. Both sample future dice. The
+final score always uses the original decision maker's perspective.
+
+I also implemented two comparison policies. \texttt{RandomAgent} selects legal
+moves without strategic evaluation and supports automated engine testing. The
+heuristic-only opponent evaluates each candidate immediately, with no simulated
+future turns. Because it shares the Monte Carlo agent's cutoff heuristic, it
+provides a more informative comparison of the benefit of lookahead.
+
+\subsection{Shared Heuristic for Evaluating Board Positions}
+
+I implemented a shared position-evaluation heuristic to estimate how favorable
+an unfinished board is. It combines six features, expressed as differences
+between the two players so that a favorable position receives a positive score
+from the evaluating player's perspective:
+
+\begin{description}
+    \item[Pip-count advantage (weight 1).]
+    Pip count measures the total distance the remaining checkers must travel
+    before bearing off. Each checker on the bar contributes 25 pips. The score
+    adds the opponent's pip count minus the player's own pip count, rewarding
+    a smaller remaining distance. For example, having 100 pips remaining against
+    an opponent's 120 contributes $+20$ to the raw score.
+
+    \item[Borne-off advantage (weight 4).]
+    The difference between the player's and opponent's borne-off checker counts
+    is multiplied by four. This gives an explicit reward for removing checkers.
+    Bearing off already improves pip count, so this term deliberately adds an
+    extra preference for completed progress rather than measuring an independent
+    effect.
+
+    \item[Bar advantage (weight 8).]
+    The opponent's bar count minus the player's own bar count is multiplied by
+    eight. Bar checkers already contribute to pip count, but this additional
+    penalty represents the movement restriction of having to re-enter before
+    moving other checkers. One extra opposing checker on the bar contributes
+    $+8$ beyond its pip-count effect.
+
+    \item[Protected home points (weight 2).]
+    A protected, or made, point contains at least two own checkers. The heuristic
+    rewards having more made points in the home board than the opponent, with
+    weight two per point of advantage. Such points block landing and can make
+    opposing bar entry more difficult.
+
+    \item[Longest prime (weight 1.5 on squared lengths).]
+    A prime is a consecutive run of made points. The heuristic adds 1.5 times
+    the difference between the squared lengths of the players' longest runs.
+    Squaring gives longer blocking structures a larger reward. A three-point
+    run against a two-point run contributes $1.5(3^2-2^2)=7.5$.
+
+    \item[Threatened blots (weight 3).]
+    A blot is a point occupied by one checker. The heuristic penalizes own blots
+    that an opponent could reach directly with a single die and rewards the
+    corresponding opponent vulnerability. It adds three times the opponent's
+    threatened-blot count minus the player's own count. Bar-entry threats are
+    included. This is a simplified risk measure: it does not calculate exact
+    hit probabilities or account for hits requiring both dice.
+\end{description}
+
+The bar, protected-point, prime, and threatened-blot terms are used only while
+contact remains possible. Once the players have passed each other and neither
+has checkers on the bar, the score uses only pip count and borne-off advantage.
+This avoids rewarding blocking structures that no longer affect the opponent.
+
+After adding these weighted differences into a raw score $R$, the heuristic
+returns
+\[
+    V(s,p)=0.99\tanh(R/50).
+\]
+This transformation keeps nonterminal scores between $-0.99$ and $+0.99$.
+A completed win receives $+1$ and a completed loss receives $-1$ instead of a
+heuristic estimate. The values are position utilities, not winning percentages.
+The Monte Carlo agent averages them across its rollouts to rank candidate moves.
+
+The same heuristic serves two purposes: it evaluates positions at the rollout
+depth limit, and it selects immediate moves inside heuristic-guided rollouts.
+During simulated move selection, each player evaluates from their own perspective;
+the final rollout score always uses the original decision maker's perspective.
+This shared baseline is already implemented, while the four planned
+strategy-specific biases remain future work. All weights are provisional
+design choices, not learned coefficients or values established by the current
+experiments. Further testing is needed to determine whether the extra borne-off
+and bar rewards, in particular, improve performance.
+
+The weights assigned to each heuristic feature and the normalization scale
+parameter, currently set to 50, will be tuned through later experiments.
+The selected parameters will then be fixed before the main comparisons of
+strategic styles and rule variations.
+
+
+\subsection{Reproducible Experiments and Performance Measurement}
+
+The evaluation framework plays complete games and alternates the main agent
+between Player 1 and Player 2. The opening contest independently determines who
+starts. Separate seeded random streams control actual dice, the main agent,
+and its opponent. Repeating the same code, settings, and seeds reproduces game
+outcomes; such replays do not count as additional independent experiments.
+
+Saved reports contain configuration settings, seeds, per-game outcomes,
+decision timings, and source-code hashes. Runtime checks reject illegal actions,
+incorrect passes, checker-count violations, and mutation during decisions.
+A turn-limit violation raises an error rather than being recorded as a draw.
+A separate single-decision benchmark measures candidate-evaluation cost without
+requiring a complete matchup. The implementation, tests, usage documentation,
+and saved experiment records have been committed and pushed to GitHub.
+
+\section{Preliminary Findings and Baseline Selection}
+
+\subsection{Random Opponents Were Insufficient to Validate Lookahead}
+
+The initial baseline performed strongly against random play, but heuristic-only
+play also defeated the random opponent in all 40 games of its evaluation batch.
+Consequently, success against random play could not establish that simulations
+improved decision quality. Direct comparison with heuristic-only play exposed a
+weakness: the retained random-rollout configuration using 20 simulations and
+depth 20 won only four of 40 games.
+
+A plausible explanation is a mismatch between random simulated responses and
+the actual opponent's deliberate choices. Increasing depth did not consistently
+improve performance in the tested batches. These observations motivated testing
+heuristic-guided continuations, rather than assuming that more simulation alone
+would strengthen the agent. They do not establish the cause of every loss or a
+general limitation of Monte Carlo methods.
+
+\subsection{Guided Rollouts Provided a Promising Provisional Baseline}
+
+With guided rollouts, 20 simulations per distinct candidate, and depth four,
+two retained batches produced 29 and 24 wins in 40 games each. The combined
+result was 53/80 wins, or 66.3\%, against heuristic-only play. Across the 3,215
+recorded main-agent decisions, mean decision time was approximately 0.323 seconds.
+Occasional decisions exceeded 16 seconds, so large tournaments will require
+attention to runtime as well as average performance.
+
+Guided configurations with five rollouts won 23/80 games across two other
+retained batches. This suggests that action ranking may be sensitive to sampling
+budget. However, different seed batches and settings limit causal comparisons.
+The results support using 20 guided rollouts and depth four as an operational
+baseline, not as an optimal configuration or an expert-strength claim.
+Only preserved experiment reports are included in these aggregates; an earlier
+overwritten batch is excluded.
+
+\section{Remaining Work}
+
+\subsection{Validate Four Distinct Strategic Styles}
+
+The next implementation stage will introduce rear-priority, front-priority,
+aggressive, and defensive biases while retaining a shared search method and
+configured budget. Behavioral measurements will verify whether those preferences
+produce the intended styles. These will include which checkers are advanced,
+hitting frequency, exposed blots, and protected points. Playing strength will
+also be measured so that a difference in style is not confused with a general
+advantage in decision quality.
+
+\subsection{Select Rule Variations and Run Controlled Tournaments}
+
+I will select small rule variations around identifiable strategic incentives
+and state hypotheses before collecting the main results. The exact variations
+remain undecided. After pilot validation, the agents will play balanced
+matchups under standard and modified rules. Planned measurements include win
+rates, game length, hits, pip-count progression, exposed blots, and the frequency
+with which a modified rule affects play. Heuristic settings will be fixed for
+these comparisons, and fresh seed batches will be used for final evaluation.
+
+The final stage will analyze the datasets and prepare the report and
+presentation. No conclusions about the effects of rule variations are available
+yet; answering that question requires the remaining style and tournament work.
+
+\section{Schedule and Completion Plan}
+
+I consider the project on track to finish within the semester. The Backgammon
+environment is operational, and a baseline agent and evaluation framework have
+undergone initial validation. Relative to the proposal, the project is moving
+from the baseline-agent milestone into the strategic-bias milestone. Final rule
+selection was deferred until this foundation was available and remains a
+planning task.
+
+The remaining sequence is to tune and fix the shared evaluation parameters,
+implement and validate the four styles, finalize rule variations, run the main
+tournaments, and analyze and present the findings. The main risks are simulation
+cost and an experiment scope that grows beyond the available time. I will manage
+these by measuring runtime, using consistent settings for comparisons,
+preserving separate experiment records, and prioritizing a manageable set of
+variations. This plan supports my current expectation of timely completion.
+
+\section*{AI Disclosure}
+
+AI assistance was used to help structure, draft, and edit this report. The
+report describes my project work and experimental results. I am responsible
+for verifying the accuracy of the report and its final content.
+
+\end{document}

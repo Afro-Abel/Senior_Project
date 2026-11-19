@@ -1,0 +1,25 @@
+\thispagestyle{plain}
+\phantomsection
+\addcontentsline{toc}{chapter}{Abstract}
+\begin{center}
+    \Large
+    \textbf{AI-Based Playtesting of Backgammon Rule Variations Using Monte Carlo Agents}
+
+    \vspace{0.4cm}
+    \large
+    Midterm Progress Report
+
+    \vspace{0.4cm}
+    \textbf{Abel Adugna}
+
+    \vspace{0.9cm}
+    \textbf{Abstract}
+\end{center}
+
+Automated playtesting can help investigate how changes to game rules affect strategic choices without requiring extensive human testing. This project asks how small Backgammon rule changes affect the relative performance and observable behavior of agents with different heuristic biases. The intended contribution is a reproducible experimental framework that compares rear-priority, front-priority, aggressive, and defensive styles under a shared Monte Carlo decision method. This midterm report presents the simulator and baseline evaluation needed before the central rule-variation experiments.
+
+The implemented system includes a Backgammon engine, legal complete-turn generation, a terminal interface, automated correctness checks, and seeded complete-game evaluation. The baseline uses flat Monte Carlo search with configurable rollout count and depth. Equivalent resulting positions are evaluated once. Simulations stop at a terminal result or a turn limit, where a shared heuristic evaluates race progress, borne-off checkers, bar checkers, threatened blots, and protected structures. Both random and heuristic-guided rollout policies are available.
+
+The current suite contains 47 passing tests. Experiments show that success against random play alone does not demonstrate useful lookahead: a retained random-rollout configuration won only four of 40 games against heuristic-only play. Guided rollouts using 20 simulations per candidate and depth four won 53 of 80 games across two retained seed batches, with an approximate 95 percent Wilson interval of 55.4 to 75.7 percent. Mean decision time was approximately 0.323 seconds. Five-rollout guided configurations won 23 of 80 games, suggesting sensitivity to sampling budget, although seed differences limit causal interpretation.
+
+These exploratory results support a provisional baseline rather than an optimal configuration. The main research question remains unanswered: the four styles and rule variations have not yet been implemented. Remaining work will validate behavioral differences, select hypothesis-driven variations, and conduct controlled tournaments.
